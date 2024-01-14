@@ -3,15 +3,14 @@ import React, { useState, useRef, useEffect } from 'react';
 export const CustomDropdown = ({ selectedValue, options, onSelect, placeholder, onSelectionChange }) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
-
     const toggleDropdown = () => setIsOpen(!isOpen);
-
     const handleOptionSelect = (option) => {
         onSelect(option.label);
         setIsOpen(false);
 
         if (onSelectionChange) {
-            onSelectionChange(option.value); // Call the passed function with the selected value
+            // Call the passed function with the selected value
+            onSelectionChange(option.value); 
         }
     };
 

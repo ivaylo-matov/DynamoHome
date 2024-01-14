@@ -19,21 +19,15 @@ export function RecentPage (){
     const [graphs, setGraphs] = useState(initialGraphs);    
 
     const setLoadingDone = (newText) => {
-        alert('loading done');
-        alert(newText);
         setDisplayText(newText);
     };
 
     const receiveGraphDataFromDotNet = (jsonData) => {
-        alert('nothing');
         console.log('Received data from .NET:', jsonData);
-        alert('Received data from .NET:', jsonData);
       
         try {
           // jsonData is already an object, so no need to parse it
           const data = jsonData;
-          console.log('Received data:', data);
-        
           setGraphs(data);
         } catch (error) {
           console.error('Error processing data:', error);
@@ -44,7 +38,6 @@ export function RecentPage (){
         window.setLoadingDone = setLoadingDone;
         // If we are under production, we will override the graphs with the actual data sent from Dynamo
         if (process.env.NODE_ENV !== 'development') {
-            alert('setting shit');
             window.receiveGraphDataFromDotNet = receiveGraphDataFromDotNet;
         }
 
@@ -57,7 +50,6 @@ export function RecentPage (){
         };
     }, []); 
 
-    alert(process.env.NODE_ENV);
     console.log(process.env.NODE_ENV);
     console.log(graphs);
 
