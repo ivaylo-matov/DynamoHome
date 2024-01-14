@@ -349,6 +349,7 @@ select {
   display: grid;
   grid-template-columns: 1fr 160px 160px 160px; /* Should match the header */
   align-items: center;
+  cursor: pointer;
   /* max-height:32px; */
 }
 
@@ -402,4 +403,8 @@ select {
 .viewmode-button.active{ 
     background-color: rgba(56,171,223, 0.15); 
     border: 1px solid rgba(56,171,223, 0.5);
+}
+
+.hidden{
+    display: none;
 }

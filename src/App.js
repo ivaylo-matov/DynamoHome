@@ -15,6 +15,7 @@ function App() {
   }
 
   useEffect(() => {
+      console.log('loaded exactly 1 time');
       if(chrome.webview !== undefined){
         chrome.webview.hostObjects.scriptObject.ApplicationLoaded();
       }

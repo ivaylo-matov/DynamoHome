@@ -68,12 +68,11 @@ export function Sidebar({ onItemSelect, selectedSidebarItem })
                     <hr className="separator"/>
                 </div>
                 <div className="link-container cell">
-                    <a className='sidebar-link' href="https://placeholder.com">Discussion Forum</a>
-                    <a className='sidebar-link' href="https://placeholder.com">Dynamo Webside</a>
-                    <a className='sidebar-link' href="https://placeholder.com">Dynamo Primer</a>
-                    <a className='sidebar-link' href="https://placeholder.com">Dynamo Dictionary</a>
-                    <a className='sidebar-link' href="https://placeholder.com">Github Repository</a>
-                    <a className='sidebar-link' href="https://placeholder.com">Send Issues</a>
+                    <a className='sidebar-link' target="_blank" rel="noopener noreferrer" href="https://forum.dynamobim.com/">Discussion Forum</a>
+                    <a className='sidebar-link' target="_blank" rel="noopener noreferrer" href="https://dynamobim.org/">Dynamo Webside</a>
+                    <a className='sidebar-link' target="_blank" rel="noopener noreferrer" href="https://primer2.dynamobim.org/">Dynamo Primer</a>
+                    <a className='sidebar-link' target="_blank" rel="noopener noreferrer" href="https://github.com/dynamods">Github Repository</a>
+                    <a className='sidebar-link' target="_blank" rel="noopener noreferrer" href="https://github.com/DynamoDS/Dynamo/issues">Send Issues</a>
                 </div>
             </div>
         </div>

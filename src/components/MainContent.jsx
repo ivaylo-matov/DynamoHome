@@ -8,15 +8,15 @@ export function MainContent({ selectedSidebarItem }){
 
     return (
         <div className='main-body-container'>
-            {selectedSidebarItem === 'Recent' && (
+            <div className={`page-container ${selectedSidebarItem === 'Recent' ? '' : 'hidden'}`}>
                 <RecentPage />
-            )}
-            {selectedSidebarItem === 'Samples' && (
+            </div>
+            <div className={`page-container ${selectedSidebarItem === 'Samples' ? '' : 'hidden'}`}>
                 <SamplesPage />
-            )}
-            {selectedSidebarItem === 'Learning' && (
+            </div>
+            <div className={`page-container ${selectedSidebarItem === 'Learning' ? '' : 'hidden'}`}>
                 <LearningPage />
-            )}
+            </div>
         </div>
     )
 }

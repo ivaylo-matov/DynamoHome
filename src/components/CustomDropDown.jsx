@@ -34,7 +34,7 @@ export const CustomDropdown = ({ selectedValue, options, onSelect, placeholder, 
     return (
         <div className={`custom-dropdown ${isOpen ? 'open' : ''}`} ref={dropdownRef}>
             <div className="dropdown-selected" onClick={toggleDropdown}>
-                <span>{selectedValue || placeholder}</span>
+                <span>{placeholder}</span>
                 {/* SVG Arrow */}
                 <svg className={`arrow ${isOpen ? 'open' : ''}`} width="24" height="24" viewBox="0 0 24 24">
                     <path d="M8 10l4 4 4-4" stroke="#949494" strokeWidth="2" fill="none"/>

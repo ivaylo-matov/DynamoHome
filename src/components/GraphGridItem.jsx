@@ -1,11 +1,6 @@
 import React from 'react';
 import { img } from './../assets/home.js'
-
-function openFile(path) {
-    if (chrome.webview !== undefined) {
-      chrome.webview.hostObjects.scriptObject.OpenFile(path);
-    }
-};
+import { openFile } from './../functions/utility.js'
 
 export function GraphGridItem( {id, Caption, ContextData, DateModified} )
 {

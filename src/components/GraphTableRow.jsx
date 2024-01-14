@@ -1,17 +1,20 @@
 import React from "react";
 import { img } from './../assets/home.js'
+import { openFile } from './../functions/utility.js'
 
 export function GraphTableRow({ id, Caption, ContextData, DateModified, Location }) {
+
   const handleClick = (e) => {
+    alert('open graph');
     e.preventDefault();
     openFile(ContextData);
   };
 
   return (
-    <div className="table-row">
+    <div className="table-row" onClick={handleClick}>
       {/* TItle */}
       <div className="title-cell">
-        <a className="graph-link row-img" onClick={handleClick}>
+        <a className="graph-link row-img" >
           <div className="clipped-image-container row-img-container">
             <img src={img} className="clipped-image" />
           </div>
