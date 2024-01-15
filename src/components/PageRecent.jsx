@@ -1,8 +1,10 @@
 import React from "react";
 import { useState, useEffect } from 'react'
 import { GraphGridItem } from './GraphGridItem.jsx'
-import { GraphTableRow } from './GraphTableRow.jsx'
+import { CustomCellRenderer } from './CustomCellRenderer.jsx'
+import { GraphTable } from './GraphTable.jsx'
 import { GridViewIcon, ListViewIcon } from './CustomIcons.jsx'
+import { openFile } from './../functions/utility.js'
 
 export function RecentPage (){
     const [displayText, setDisplayText] = useState('Test');
@@ -18,10 +20,12 @@ export function RecentPage (){
 
     const [graphs, setGraphs] = useState(initialGraphs);    
 
+    // To be removed, just for texting purposes
     const setLoadingDone = (newText) => {
         setDisplayText(newText);
     };
 
+    // A method exposed to the backend used to set the graph data coming from Dynamo
     const receiveGraphDataFromDotNet = (jsonData) => {
         console.log('Received data from .NET:', jsonData);
       
@@ -50,8 +54,37 @@ export function RecentPage (){
         };
     }, []); 
 
-    console.log(process.env.NODE_ENV);
-    console.log(graphs);
+    // This variable defins the table structure displaying the graphs
+    const columns = React.useMemo(() => [
+        {
+          Header: 'Title',
+          accessor: 'Caption',
+          width: 300,
+          resizable: true, 
+          Cell: CustomCellRenderer,
+        },
+        {
+          Header: 'Author',
+          accessor: 'author',
+          resizable: true,
+        },
+        {
+          Header: 'Date Modified',
+          accessor: 'DateModified',
+          resizable: true,
+        },
+        {
+          Header: 'Location',
+          accessor: 'Location',
+          resizable: true,
+        }
+      ], []);
+
+    // Handles mouse click over each row
+    const handleRowClick = (row) => {
+        const contextData = row.original.ContextData;        
+        openFile(contextData);
+    };
 
     return(
         <div>
@@ -76,23 +109,13 @@ export function RecentPage (){
             </div>
             <div>
                 {viewMode === 'list' && (
-                    <div className="table-view">
-                    <div className="table-header">
-                        <div className='graph-item-subtitle-text'>Title</div>
-                        <div className='graph-item-subtitle-text'>Author</div>
-                        <div className='graph-item-subtitle-text'>Date Modified</div>
-                        <div className='graph-item-subtitle-text'>Location</div>
-                    </div>
-                    {graphs.map(graph => (
-                        <GraphTableRow key={graph.id} {...graph} />
-                    ))}
-                    </div>
-                )}
+                    <GraphTable columns={columns} data={graphs} onRowClick={handleRowClick}/>
+                )}                
                 {viewMode === 'grid' && (
                     <div className="main-graph-grid">
-                    {graphs.map(graph => (
-                        <GraphGridItem key={graph.id} {...graph} />
-                    ))}
+                        {graphs.map(graph => (
+                            <GraphGridItem key={graph.id} {...graph} />
+                        ))}
                     </div>
                 )}
             </div>

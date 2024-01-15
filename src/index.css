@@ -1,5 +1,5 @@
 :root {
-    --text-secondary: #F5F5F5;
+    --text-secondary: #f5f5f5;
 }
 
 @font-face {
@@ -10,7 +10,7 @@
 body {
     margin: 0;
     overflow: hidden;
-    font-family: "ArtifaktElement", system-ui, sans-serif;
+    font-family: 'ArtifaktElement', system-ui, sans-serif;
 }
 
 /* Main Page Styles */
@@ -38,7 +38,7 @@ body {
 .main-graph-grid {
     margin-top: 0.5rem;
     display: grid;
-    grid-template-columns: repeat(4, minmax(100px, 1fr)); 
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
     gap: 1rem;
 }
 
@@ -75,27 +75,30 @@ body {
     display: block;
 }
 
-.row-img{
-    max-width: 40px;
+.row-img {
+    max-width: 35px;
     aspect-ratio: 4/3;
-    border: #424242 2px solid;
+    border: #424242 1.5px solid;
+    border-radius: 3px;
     margin-right: 10px;
+    margin-top: 1.5px;
+    margin-bottom: 1.5px;
 }
 
 .graph-link:hover .custom-container {
-    background-color: #2C2C2C;
+    background-color: #2c2c2c;
 }
 
 .clipped-image-container {
-    display: flex; /* Use flexbox for alignment */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    aspect-ratio: 16/9; /* Maintain aspect ratio */
+    display: flex;    /* Use flexbox for alignment */
+    justify-content: center;    /* Center horizontally */
+    align-items: center;    /* Center vertically */
+    aspect-ratio: 16/9;    /* Maintain aspect ratio */
     overflow: hidden;
     position: relative;
 }
 
-.row-img-container{
+.row-img-container {
     width: 100%;
     height: 100%;
 }
@@ -113,7 +116,7 @@ body {
 }
 
 .custom-container:hover {
-    background-color: #2C2C2C;
+    background-color: #2c2c2c;
 }
 
 .graph-item-title-text {
@@ -129,18 +132,17 @@ body {
     font-size: 14px;
 }
 
-.graph-item-title-text, .graph-item-subtitle-text {
-    min-height: 20px; /* Adjust as needed */
-    /* existing styles */
+.graph-item-title-text,
+.graph-item-subtitle-text {
+    min-height: 20px;
 }
 
 .graph-card-text-item {
-    white-space: nowrap;  
-    overflow: hidden;     
-    text-overflow: ellipsis;  
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin: 0.4rem 0.2rem;
 }
-
 
 /* Sidebar */
 .sidebar-grid-container {
@@ -157,7 +159,6 @@ select {
     width: 100%;
     padding: 0.7em;
     border-radius: 0px;
-    /* Optional: Add border-radius for a rounded appearance */
     border-color: transparent;
 }
 
@@ -165,7 +166,7 @@ select {
     font-size: 32px;
     margin: 0;
     margin-top: 40px;
-    margin-bottom: 40px
+    margin-bottom: 40px;
 }
 
 .sidebar-text {
@@ -190,18 +191,16 @@ select {
 
 .sidebar-items-container {
     margin-top: 2rem;
-    /* Equivalent to mt-20 in Tailwind */
 }
 
 .sidebar-items-container>*+* {
     margin-top: 1rem;
-    /* Equivalent to space-y-4 in Tailwind */
 }
 
 .sidebar-link {
-    color: #6DD2FF;
+    color: #6dd2ff;
     text-decoration: none;
-    margin-top: .5em;
+    margin-top: 0.5em;
     font-size: 14px;
 }
 
@@ -221,17 +220,13 @@ select {
 }
 
 .separator {
-    position: absolute;
-    /* Set the position to absolute */
-    bottom: 0;
-    /* Align to the bottom of the cell */
-    left: 0;
-    /* Align to the left of the cell */
+    position: absolute;    /* Set the position to absolute */
+    bottom: 0;    /* Align to the bottom of the cell */
+    left: 0;    /* Align to the left of the cell */
     width: 100%;
     border: none;
     height: 1px;
-    background-color: #4b4b4b;
-    /* Separator color */
+    background-color: #4b4b4b;    /* Separator color */
 }
 
 /* Custom Select Component */
@@ -241,8 +236,7 @@ select {
 }
 
 .arrow.open {
-    transform: rotate(180deg);
-    /* Flip the arrow when open */
+    transform: rotate(180deg);    /* Flip the arrow when open */
 }
 
 .custom-dropdown {
@@ -256,8 +250,7 @@ select {
 
 .custom-dropdown.open,
 .custom-dropdown:hover {
-    /* Add the 1px bottom border on hover */
-    border-bottom-color: #38ABDF;
+    border-bottom-color: #38abdf;
 }
 
 .custom-dropdown.open::after,
@@ -267,20 +260,15 @@ select {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -7px;
-    /* Position it just below the 1px border */
+    bottom: -7px;    /* Position it just below the 1px border */
     height: 5px;
-    background-color: #40687A;
-    /* Darker blue color */
-    opacity: 0;
-    /* Start with an invisible border */
-    transition: opacity 0.3s ease;
-    /* Transition for the opacity */
+    background-color: #40687a;    /* Darker blue color */
+    opacity: 0;    /* Start with an invisible border */
+    transition: opacity 0.3s ease;    /* Transition for the opacity */
 }
 
 .custom-dropdown:hover::after {
     opacity: 1;
-    /* Make the border visible on hover */
 }
 
 .custom-dropdown.open:not(:hover) {
@@ -293,12 +281,9 @@ select {
 }
 
 .dropdown-selected {
-    display: flex;
-    /* Use flexbox layout */
-    justify-content: space-between;
-    /* Space between items */
-    align-items: center;
-    /* Align items vertically */
+    display: flex;    /* Use flexbox layout */
+    justify-content: space-between;    /* Space between items */
+    align-items: center;    /* Align items vertically */
     padding: 10px;
     padding-left: 14px;
     padding-right: 6px;
@@ -328,68 +313,7 @@ select {
     background-color: #434343;
 }
 
-/* List View */
-.table-view {
-  margin-top: 0.5rem;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table-header {
-  display: grid;
-  grid-template-columns: 1fr 160px 160px 160px; /* Adjust as per your content */
-  font-size: 14px;
-  align-items: center;
-  color: white;
-  background-color: #3F3F3F;
-  /* min-height: 32px; */
-}
-
-.table-row {
-  display: grid;
-  grid-template-columns: 1fr 160px 160px 160px; /* Should match the header */
-  align-items: center;
-  cursor: pointer;
-  /* max-height:32px; */
-}
-
-.table-header > div, 
-.table-row > div {
-  padding: 0.5em; /* Left padding, can be adjusted if needed */
-}
-
-.table-header > div:not(:first-child), 
-.table-row > div:not(:first-child) {
-  border-left: 1px solid rgba(204, 204, 204, 0.5); /* Left border instead of right */
-}
-
-.table-row > div {
-  padding: 0.5rem; /* Adjust overall padding as needed */
-}
-
-.row-item-text {
-    cursor: pointer;
-    color: var(--text-secondary);
-    white-space: nowrap; /* Prevents the text from wrapping to the next line */
-    text-overflow: ellipsis; /* Adds an ellipsis (...) if the text is too long */
-    overflow: hidden;
-    font-size: 14px;
-    min-height: 18.5px;
-    max-width: 150px;
-}
-
-.title-cell {
-  display: flex;
-  align-items: center;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-
-.title-text{
-    max-width: 250px; /* Optional, ensures the div doesn't exceed its parent's width */
-}
-
-.viewmode-button{
+.viewmode-button {
     margin: 0px;
     padding: 0px;
     border: none;
@@ -397,14 +321,121 @@ select {
     height: 38px;
     cursor: pointer;
     background-color: transparent;
-    border-radius: 2px; 
+    border-radius: 2px;
 }
 
-.viewmode-button.active{ 
-    background-color: rgba(56,171,223, 0.15); 
-    border: 1px solid rgba(56,171,223, 0.5);
+.viewmode-button.active {
+    background-color: rgba(56, 171, 223, 0.15);
+    border: 1px solid rgba(56, 171, 223, 0.5);
 }
 
-.hidden{
+/* Hidden items */
+.hidden {
     display: none;
+}
+
+/* Basic reset for table styling */
+.table-view table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;    /* This ensures uniform column width */
+    color: #f5f5f5;    /* Dark text color */
+    font-weight: 400;
+    font-size: 14px;
+    align-items: center;
+    padding: left right 5px;
+}
+
+/* Styling for table headers */
+.table-view th {
+    background-color: #3f3f3f;    /* Light grey background */
+    text-align: left;
+    font-weight: 400;
+    padding: 8px;    /* Adjust padding as needed */
+    border-bottom: 2px solid #515151;    /* Adds a border below the header */
+    border-right: 1px solid rgba(117, 117, 117, 0.5);
+    position: relative;
+}
+
+/* Styling for table cells */
+.table-view td {
+    border-bottom: 1px solid #515151;    /* Adds a border between rows */
+    border-right: 1px solid rgba(117, 117, 117, 0.5);
+    text-align: left;    /* Align text to the left */
+    vertical-align: middle;    /* Vertically align text in the middle */
+    overflow: hidden;    /* Ensures content doesn't overflow */
+    text-overflow: ellipsis;    /* Adds an ellipsis for overflowed text */
+    white-space: nowrap;    /* Prevents text wrapping */
+    padding: 0px 8px !important;
+    display: flex;
+    align-items: center;    /* This will work with flexbox */
+    justify-content: flex-start;    /* Aligns content to the left */
+}
+
+/* Row styling for hover effect */
+.table-view tr:hover {
+    background-color: rgba(117, 117, 117, 0.5);
+}
+
+.table-view td:last-child,
+.table-view th:last-child {
+    border-right: none;
+}
+
+/* Adjust the width of specific columns, if needed */
+.table-view .column-title {
+    width: 40%;    
+}
+
+.table-view .column-author {
+    width: 20%;
+}
+
+@media screen and (max-width: 600px) {
+    .table-view td {
+        white-space: normal;
+    }
+
+    .table-view table {
+        width: auto;
+    }
+}
+
+/* Table resizer style */
+.resizer {
+    display: inline-block;
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(50%);
+    z-index: 1;
+    touch-action: none;
+    background: rgba(117, 117, 117, 0.3);   
+}
+
+.resizer:hover {
+    background: #aaa;    /* change color on hover for better visibility */
+}
+
+.th {
+    position: relative;    /* Required to position the resizer */
+}
+
+.title-cell {
+    display: flex;
+    align-items: center;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.row-item-text {
+    cursor: pointer;
+    color: var(--text-secondary);
+    white-space: nowrap;    /* Prevents the text from wrapping to the next line */
+    text-overflow: ellipsis;    /* Adds an ellipsis (...) if the text is too long */
+    overflow: hidden;
+    font-size: 14px;
+    min-height: 18.5px;
 }

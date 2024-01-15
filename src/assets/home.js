@@ -5,18 +5,21 @@ export const graphs = [
         id: "1",
         date: "Date modified",
         Caption: "Graph Name",
+        ContextData: "C:\\Users\\DeyanNenov\\Documents\\GitHub\\Dynamo\\bin\\AnyCPU\\Debug\\DynamoSandbox.exe",
         thumbnail: img
     },    
     {
         id: "2",
         date: "Date modified",
         Caption: "Graph Name",
+        ContextData: "C:\\Users\\DeyanNenov\\Documents\\GitHub\\Dynamo\\bin\\AnyCPU\\Debug\\DynamoSandbox.exe",
         thumbnail: img
     },
     {
         id: "3",
         date: "Date modified",
         Caption: "Graph.with.very.long.name.that.doesn't.fit.the.screen.at.all",
+        ContextData: "C:\\Users\\DeyanNenov\\Documents\\GitHub\\Dynamo\\bin\\AnyCPU\\Debug\\DynamoSandbox.exe",
         DateModified: "1/9/2024 6:24:35 PM",
         Location: "C:\\Users\\DeyanNenov\\Documents\\GitHub\\Dynamo\\bin\\AnyCPU\\Debug\\DynamoSandbox.exe",
         thumbnail: img
@@ -25,14 +28,15 @@ export const graphs = [
         id: "4",
         date: "Date modified",
         Caption: "Graph Name",
+        ContextData: "C:\\Users\\DeyanNenov\\Documents\\GitHub\\Dynamo\\bin\\AnyCPU\\Debug\\DynamoSandbox.exe",
         DateModified: "1/9/2024 6:24:35 PM",
         Location: "C:\\Users\\DeyanNenov\\Documents\\GitHub\\Dynamo\\bin\\AnyCPU\\Debug\\DynamoSandbox.exe",
-        thumbnail: img
     },
     {
         id: "5",
         date: "Date modified",
         Caption: "Graph Name",
+        ContextData: "C:\\Users\\DeyanNenov\\Documents\\GitHub\\Dynamo\\bin\\AnyCPU\\Debug\\DynamoSandbox.exe",
         DateModified: "",
         thumbnail: img
     },
@@ -40,6 +44,7 @@ export const graphs = [
         id: "6",
         date: "Date modified",
         Caption: "Graph Name",
+        ContextData: "C:\\Users\\DeyanNenov\\Documents\\GitHub\\Dynamo\\bin\\AnyCPU\\Debug\\DynamoSandbox.exe",
         DateModified: "1/9/2024 6:24:35 PM",
         Location: "C:\\Users\\DeyanNenov\\Documents\\GitHub\\Dynamo\\bin\\AnyCPU\\Debug\\DynamoSandbox.exe",
         thumbnail: img
@@ -48,6 +53,7 @@ export const graphs = [
         id: "7",
         date: "Date modified",
         Caption: "Graph Name",
+        ContextData: "C:\\Users\\DeyanNenov\\Documents\\GitHub\\Dynamo\\bin\\AnyCPU\\Debug\\DynamoSandbox.exe",
         DateModified: "",
         thumbnail: img
     }
