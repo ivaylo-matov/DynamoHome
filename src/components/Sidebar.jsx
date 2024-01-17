@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { CustomDropdown } from './CustomDropDown.jsx';
-import { Tooltip } from '@adsk/uda-ui-components';
 import { FormattedMessage } from 'react-intl';
+import { Tooltip } from './Tooltip.jsx'
 
 export function Sidebar({ onItemSelect, selectedSidebarItem })
 {
@@ -56,17 +56,17 @@ export function Sidebar({ onItemSelect, selectedSidebarItem })
 
                     <div className="sidebar-items-container">
                         <div className={`sidebar-link-container ${isSelected('Recent') ? 'selected' : ''}`} onClick={() => onItemSelect('Recent')}>
-                            <Tooltip tooltipFontWeight='regular' placement='bottom' content={<FormattedMessage id="tooltip.text.recent" />}>  
+                            <Tooltip content={<FormattedMessage id="tooltip.text.recent" />}>  
                                 <FormattedMessage id="title.text.recent" className="sidebar-text"/>
                             </Tooltip>
                         </div>
                         <div className={`sidebar-link-container ${isSelected('Samples') ? 'selected' : ''}`} onClick={() => onItemSelect('Samples')}>
-                            <Tooltip tooltipFontWeight='regular' placement='bottom-end' content={<FormattedMessage id="tooltip.text.samples" />}>  
+                            <Tooltip content={<FormattedMessage id="tooltip.text.samples" />}>  
                                 <FormattedMessage id="title.text.samples" className="sidebar-text"/>
                             </Tooltip>
                         </div>
                         <div className={`sidebar-link-container ${isSelected('Learning') ? 'selected' : ''}`} onClick={() => onItemSelect('Learning')}>
-                            <Tooltip tooltipFontWeight='regular' placement='bottom-end' content={<FormattedMessage id="tooltip.text.learning" />}>  
+                            <Tooltip content={<FormattedMessage id="tooltip.text.learning" />}>  
                                 <FormattedMessage id="title.text.learning" className="sidebar-text"/>
                             </Tooltip>
                         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Tooltip } from '@adsk/uda-ui-components';
+import { Tooltip } from './Tooltip.jsx'
 
 /**
  * Exports a custom cell renderer for the location column of the table view.
@@ -11,7 +11,7 @@ export const CustomLocationCellRenderer = ({ value }) => {
   return (
     <div className="title-cell">
         <div className="row-item-text title-text">
-          <Tooltip tooltipFontWeight='regular' tooltipMaxWidth={400} content={Caption}>
+          <Tooltip content={Caption}>
             {Caption}
           </Tooltip>
         </div>

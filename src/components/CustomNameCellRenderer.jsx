@@ -1,6 +1,6 @@
 import React from "react";
 import { img } from '../assets/home.js';
-import { Tooltip } from '@adsk/uda-ui-components';
+import { Tooltip } from './Tooltip.jsx'
 
 /**
  * Exports a custom cell renderer for the first column of the table view.
@@ -19,7 +19,7 @@ export const CustomNameCellRenderer = ({ value, row }) => {
         </div>
       </a>
         <div className="row-item-text title-text">
-          <Tooltip tooltipFontWeight='regular' tooltipMaxWidth={400} content={Caption}>
+          <Tooltip content={Caption}>
             {Caption}
           </Tooltip>
         </div>

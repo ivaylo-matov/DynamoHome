@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'development',
@@ -29,7 +30,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
+    new BundleAnalyzerPlugin(),
   ],
+  optimization: {
+    // Use when analyzing the bundle.js size and make up
+    // concatenateModules: false,
+  },
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),

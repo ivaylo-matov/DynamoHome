@@ -20,14 +20,15 @@ function App() {
     setSelectedSidebarItem(item);
   }
 
-  window.setLocale = (newLocale) => {
-    setLocale(newLocale);
-  };
-
+  
   useEffect(() => {
-      console.log('loaded exactly 1 time');
-      if(chrome.webview !== undefined){
-        chrome.webview.hostObjects.scriptObject.ApplicationLoaded();
+    console.log('loaded exactly 1 time');
+    window.setLocale = (newLocale) => {
+      setLocale(newLocale);
+    };
+    // Trigger the 'ApplicationLoaded()' command on the back end
+    if(chrome.webview !== undefined){
+      chrome.webview.hostObjects.scriptObject.ApplicationLoaded();
       }
     }, []); 
 

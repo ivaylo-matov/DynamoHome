@@ -6,8 +6,8 @@ import { CustomLocationCellRenderer } from './CustomLocationCellRenderer.jsx';
 import { GraphTable } from './GraphTable.jsx';
 import { GridViewIcon, ListViewIcon } from './CustomIcons.jsx';
 import { openFile } from './../functions/utility.js';
-import { Tooltip } from '@adsk/uda-ui-components';
 import { FormattedMessage } from 'react-intl';
+import { Tooltip } from './Tooltip.jsx'
 
 export function RecentPage (){
     const [displayText, setDisplayText] = useState('Test');
@@ -100,7 +100,7 @@ export function RecentPage (){
                         className={`viewmode-button ${viewMode === 'grid' ? 'active' : ''}`}
                         onClick={() => setViewMode('grid')}
                         disabled={viewMode === 'grid'}>
-                        <Tooltip tooltipFontWeight='regular' content={<FormattedMessage id="tooltip.text.grid.view.button" />}>
+                        <Tooltip content={<FormattedMessage id="tooltip.text.grid.view.button" />}>
                                 <GridViewIcon/>
                         </Tooltip>
                     </button>
@@ -108,7 +108,7 @@ export function RecentPage (){
                         className={`viewmode-button ${viewMode === 'list' ? 'active' : ''}`}
                         onClick={() => setViewMode('list')}
                         disabled={viewMode === 'list'}>
-                        <Tooltip tooltipFontWeight='regular' content={<FormattedMessage id="tooltip.text.list.view.button" />}>
+                        <Tooltip content={<FormattedMessage id="tooltip.text.list.view.button" />}>
                             <ListViewIcon/>
                         </Tooltip>
                     </button>

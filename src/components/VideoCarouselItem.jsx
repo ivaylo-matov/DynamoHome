@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip } from '@adsk/uda-ui-components';
+import { Tooltip } from './Tooltip.jsx'
 
 export function VideoCarouselItem({ id, title, videoId, description }) {
     const youtubeEmbedUrl = `https://www.youtube.com/embed/${videoId}`;
@@ -28,11 +28,11 @@ export function VideoCarouselItem({ id, title, videoId, description }) {
             </div>
             <div className="custom-video-container">
                 <p className="graph-item-title-text graph-card-text-item">{title}</p>
-                <p className="graph-item-subtitle-text graph-card-text-item">
-                    <Tooltip tooltipFontWeight='regular' content={tooltip}>
+                <Tooltip verticalOffset={20} content={tooltip}>
+                    <p className="graph-item-subtitle-text graph-card-text-item">
                         {description}
-                    </Tooltip>
-                </p>
+                    </p>
+                </Tooltip>
             </div>
         </div>
     );
