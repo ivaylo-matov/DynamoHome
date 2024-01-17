@@ -1,0 +1,10 @@
+{
+    "title.text.recent": "Recent",
+    "title.text.samples": "Samples",
+    "title.text.learning": "Learning",
+    "tooltip.text.recent": "View recent files",
+    "tooltip.text.samples": "View sample graphs",
+    "tooltip.text.learning": "View learning content",
+    "tooltip.text.grid.view.button": "Grid view",
+    "tooltip.text.list.view.button": "List view"
+}

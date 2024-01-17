@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import { CustomDropdown } from './CustomDropDown.jsx'
+import { CustomDropdown } from './CustomDropDown.jsx';
+import { Tooltip } from '@adsk/uda-ui-components';
+import { FormattedMessage } from 'react-intl';
 
 export function Sidebar({ onItemSelect, selectedSidebarItem })
 {
@@ -54,13 +56,19 @@ export function Sidebar({ onItemSelect, selectedSidebarItem })
 
                     <div className="sidebar-items-container">
                         <div className={`sidebar-link-container ${isSelected('Recent') ? 'selected' : ''}`} onClick={() => onItemSelect('Recent')}>
-                            <p className="sidebar-text">Recent</p>
+                            <Tooltip tooltipFontWeight='regular' placement='bottom' content={<FormattedMessage id="tooltip.text.recent" />}>  
+                                <FormattedMessage id="title.text.recent" className="sidebar-text"/>
+                            </Tooltip>
                         </div>
                         <div className={`sidebar-link-container ${isSelected('Samples') ? 'selected' : ''}`} onClick={() => onItemSelect('Samples')}>
-                            <p className="sidebar-text">Samples</p>
+                            <Tooltip tooltipFontWeight='regular' placement='bottom-end' content={<FormattedMessage id="tooltip.text.samples" />}>  
+                                <FormattedMessage id="title.text.samples" className="sidebar-text"/>
+                            </Tooltip>
                         </div>
                         <div className={`sidebar-link-container ${isSelected('Learning') ? 'selected' : ''}`} onClick={() => onItemSelect('Learning')}>
-                            <p className="sidebar-text">Learning</p>
+                            <Tooltip tooltipFontWeight='regular' placement='bottom-end' content={<FormattedMessage id="tooltip.text.learning" />}>  
+                                <FormattedMessage id="title.text.learning" className="sidebar-text"/>
+                            </Tooltip>
                         </div>
                     </div>
                 </div>

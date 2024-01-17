@@ -1,10 +1,13 @@
 import React from "react";
-import { useState, useEffect } from 'react'
-import { GraphGridItem } from './GraphGridItem.jsx'
-import { CustomCellRenderer } from './CustomCellRenderer.jsx'
-import { GraphTable } from './GraphTable.jsx'
-import { GridViewIcon, ListViewIcon } from './CustomIcons.jsx'
-import { openFile } from './../functions/utility.js'
+import { useState, useEffect } from 'react';
+import { GraphGridItem } from './GraphGridItem.jsx';
+import { CustomNameCellRenderer } from './CustomNameCellRenderer.jsx';
+import { CustomLocationCellRenderer } from './CustomLocationCellRenderer.jsx';
+import { GraphTable } from './GraphTable.jsx';
+import { GridViewIcon, ListViewIcon } from './CustomIcons.jsx';
+import { openFile } from './../functions/utility.js';
+import { Tooltip } from '@adsk/uda-ui-components';
+import { FormattedMessage } from 'react-intl';
 
 export function RecentPage (){
     const [displayText, setDisplayText] = useState('Test');
@@ -61,7 +64,7 @@ export function RecentPage (){
           accessor: 'Caption',
           width: 300,
           resizable: true, 
-          Cell: CustomCellRenderer,
+          Cell: CustomNameCellRenderer,
         },
         {
           Header: 'Author',
@@ -77,6 +80,7 @@ export function RecentPage (){
           Header: 'Location',
           accessor: 'Location',
           resizable: true,
+          Cell: CustomLocationCellRenderer,
         }
       ], []);
 
@@ -92,20 +96,22 @@ export function RecentPage (){
                 <p className='title-paragraph'>Recent</p>  
             </div>
             <div>
-                <button title='grid-view-button'
-                    className={`viewmode-button ${viewMode === 'grid' ? 'active' : ''}`}
-                    onClick={() => setViewMode('grid')}
-                    disabled={viewMode === 'grid'}
-                >
-                    <GridViewIcon/>
-                </button>
-                <button title='list-view-button'
-                    className={`viewmode-button ${viewMode === 'list' ? 'active' : ''}`}
-                    onClick={() => setViewMode('list')}
-                    disabled={viewMode === 'list'}
-                >
-                    <ListViewIcon/>
-                </button>
+                    <button 
+                        className={`viewmode-button ${viewMode === 'grid' ? 'active' : ''}`}
+                        onClick={() => setViewMode('grid')}
+                        disabled={viewMode === 'grid'}>
+                        <Tooltip tooltipFontWeight='regular' content={<FormattedMessage id="tooltip.text.grid.view.button" />}>
+                                <GridViewIcon/>
+                        </Tooltip>
+                    </button>
+                    <button 
+                        className={`viewmode-button ${viewMode === 'list' ? 'active' : ''}`}
+                        onClick={() => setViewMode('list')}
+                        disabled={viewMode === 'list'}>
+                        <Tooltip tooltipFontWeight='regular' content={<FormattedMessage id="tooltip.text.list.view.button" />}>
+                            <ListViewIcon/>
+                        </Tooltip>
+                    </button>
             </div>
             <div>
                 {viewMode === 'list' && (
