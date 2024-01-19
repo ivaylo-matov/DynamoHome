@@ -60,3 +60,24 @@ export const videos = [
         description: "In this lesson, we will look at code blocks in Dynamo. Code blocks are a unique feature in Dynamo that brings together visual programming with DesignScript.\n\nDesignScript is a text-based language for computational design. By the end of this lesson, you will know how to use code blocks for numerical entry, string entry, and sequence and ranges."
     },
 ]
+
+export const guides = [
+    {
+        id: "1",
+        Name: "User Interactive Tour",
+        Description: "Description",
+        Type: "test"
+    },
+    {
+        id: "2",
+        Name: "Getting Started",
+        Description: "Description",
+        Type: ""
+    },
+    {
+        id: "3",
+        Name: "Packages",
+        Description: "Description",
+        Type: ""
+    }
+]

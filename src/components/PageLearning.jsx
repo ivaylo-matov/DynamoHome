@@ -1,18 +1,75 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 import { VideoCarouselItem } from './VideoCarouselItem.jsx';
 import { videos } from './../assets/learning.js';
 import { Carousel } from "./Carousel.jsx";
+import { GuideGridItem } from "./GuideGridItem.jsx";
+import { FormattedMessage } from 'react-intl';
 
 export function LearningPage(){
-    
+    // Set a placeholder for the guides which will be used differently during dev and prod 
+    let initialGuides = [];
+
+    // If we are under development, we will load the graphs from the local asset folder
+    if (process.env.NODE_ENV === 'development') {
+        initialGuides = require('../assets/learning.js').guides;
+    }
+
+    const [guides, setGuides] = useState(initialGuides);    
+
+    console.log(guides);
+
+    // A method exposed to the backend used to set the interactive guides data coming from Dynamo
+    const receiveInteractiveGuidesDataFromDotNet = (jsonData) => {
+        console.log('Received interactive guides data from .NET:', jsonData);
+
+        try {
+            // jsonData is already an object, so no need to parse it
+            const data = jsonData;
+            setGuides(data);
+        } catch (error) {
+            console.error('Error processing data:', error);
+        }
+    };
+
+    useEffect(() => {
+        // If we are under production, we will override the graphs with the actual data sent from Dynamo
+        if (process.env.NODE_ENV !== 'development') {
+            window.receiveInteractiveGuidesDataFromDotNet = receiveInteractiveGuidesDataFromDotNet;
+        }
+
+
+        // Cleanup function (optional)
+        return () => {
+            delete window.setLoadingDone;
+            if (process.env.NODE_ENV !== 'development') {
+                delete window.receiveInteractiveGuidesDataFromDotNet;
+            }
+        };
+    }, []); 
+
     return(
         <div>
             <div className='drop-shadow-2xl'>
-                <p className='title-paragraph'>Learning</p>  
+                <p className='title-paragraph'><FormattedMessage id="learning.title.text.learning" /></p>  
             </div>
+            <br/>
+            <br/>
+            <br/>
             <div>
                 <div className='drop-shadow-2xl'>
-                    <p className='title-paragraph'>Video Tutorials</p>  
+                    <p className='title-paragraph'><FormattedMessage id="learning.title.text.guides" /></p>  
+                </div>
+                <div className="main-graph-grid">
+                    {guides.map(guide => (
+                        <GuideGridItem key={guide.id} {...guide} />
+                    ))}
+                </div>
+            </div>
+            <br/>
+            <div>
+                <div className='drop-shadow-2xl'>
+                    <p className='title-paragraph'><FormattedMessage id="learning.title.text.videos" /></p>  
                 </div>
                 <Carousel>
                     {videos.map(video => (

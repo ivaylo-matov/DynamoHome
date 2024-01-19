@@ -6,5 +6,8 @@
     "tooltip.text.samples": "View sample graphs",
     "tooltip.text.learning": "View learning content",
     "tooltip.text.grid.view.button": "Grid view",
-    "tooltip.text.list.view.button": "List view"
+    "tooltip.text.list.view.button": "List view",
+    "learning.title.text.learning": "Learning",
+    "learning.title.text.guides": "Interactive Guides",
+    "learning.title.text.videos": "Video Tutorials"
 }

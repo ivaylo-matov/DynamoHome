@@ -1,5 +1,35 @@
+/**
+* A call to a backend function requesting to open a file
+* @param {string} path | - the location of the file on the system
+*/
 export function openFile(path) {
     if (chrome.webview !== undefined) {
       chrome.webview.hostObjects.scriptObject.OpenFile(path);
     }
 };
+
+/**
+ * A call to a backend function requesting the start of a guided tour
+ * @param {string} guidedTour - the type of guided tour to be started
+ */
+export function startGuidedTour(guidedTour){
+  if (chrome.webview !== undefined){
+    chrome.webview.hostObjects.scriptObject.StartGuidedTour(guidedTour);
+  }
+}
+
+/**
+ * A call to different backedn functions based on the provided value
+ * @param {string} value the type of command based on the UI request
+ */
+export function sideBarCommand(value){
+  if (value === 'open-file' && chrome.webview !== undefined) {
+    chrome.webview.hostObjects.scriptObject.OpenWorkspace();
+  }
+  if(value === 'workspace' && chrome.webview !== undefined){
+      chrome.webview.hostObjects.scriptObject.NewWorkspace();
+  }
+  if(value === 'custom-node' && chrome.webview !== undefined){
+      chrome.webview.hostObjects.scriptObject.NewCustomNodeWorkspace();
+  }
+}

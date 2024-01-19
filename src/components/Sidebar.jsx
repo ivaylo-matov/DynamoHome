@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { CustomDropdown } from './CustomDropDown.jsx';
 import { FormattedMessage } from 'react-intl';
 import { Tooltip } from './Tooltip.jsx'
+import { sideBarCommand } from '../functions/utility.js';
 
 export function Sidebar({ onItemSelect, selectedSidebarItem })
 {
@@ -11,16 +12,9 @@ export function Sidebar({ onItemSelect, selectedSidebarItem })
 
     const isSelected = (item) => selectedSidebarItem === item;
 
+    // Trigger the backend command based on the drop-down value
     const setSelectedValue = (value) => {
-        if (value === 'open-file' && chrome.webview !== undefined) {
-            chrome.webview.hostObjects.scriptObject.OpenWorkspace();
-        }
-        if(value === 'workspace' && chrome.webview !== undefined){
-            chrome.webview.hostObjects.scriptObject.NewWorkspace();
-        }
-        if(value === 'custom-node' && chrome.webview !== undefined){
-            chrome.webview.hostObjects.scriptObject.NewCustomNodeWorkspace();
-        }
+        sideBarCommand(value);
     };
 
     return (
