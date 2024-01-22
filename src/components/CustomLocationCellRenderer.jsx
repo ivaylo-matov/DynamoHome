@@ -10,7 +10,7 @@ export const CustomLocationCellRenderer = ({ value }) => {
 
   return (
     <div className="title-cell">
-        <div className="row-item-text title-text">
+        <div>
           <Tooltip content={Caption}>
             {Caption}
           </Tooltip>

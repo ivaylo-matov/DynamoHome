@@ -6,7 +6,7 @@ import { IntlProvider } from 'react-intl';
 import { getMessagesForLocale } from './localization/localization.js';
 
 function App() {
-  console.log('starting');
+  console.log('Initiating react app');
 
   // State to track the selected sidebar item
   const [selectedSidebarItem, setSelectedSidebarItem] = useState('Recent');
@@ -22,7 +22,6 @@ function App() {
 
   
   useEffect(() => {
-    console.log('loaded exactly 1 time');
     window.setLocale = (newLocale) => {
       setLocale(newLocale);
     };

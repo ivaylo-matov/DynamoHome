@@ -93,7 +93,7 @@ export function RecentPage (){
     return(
         <div>
             <div className='drop-shadow-2xl'>
-                <p className='title-paragraph'>Recent</p>  
+                <p className='title-paragraph'><FormattedMessage id="title.text.recent"/></p>  
             </div>
             <div>
                     <button 

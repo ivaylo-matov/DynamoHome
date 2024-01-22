@@ -18,7 +18,7 @@ export const CustomNameCellRenderer = ({ value, row }) => {
           <img src={imgSrc} className="clipped-image" />
         </div>
       </a>
-        <div className="row-item-text title-text">
+        <div>
           <Tooltip content={Caption}>
             {Caption}
           </Tooltip>

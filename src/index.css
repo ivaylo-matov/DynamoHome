@@ -17,22 +17,34 @@ body {
 .main-container {
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
     background-color: #535353;
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
 .main-flex-container {
     display: flex;
     flex-grow: 1;
+    /* Add a left margin to account for the sidebar width */
+    margin-left: 325px; /* Adjust as per the sidebar width */
 }
 
 .main-body-container {
     overflow-x: hidden;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-bottom: 1rem;
+    padding: 1.25rem;
     flex-grow: 1;
-    margin: 1.25rem;
+}
+
+.sidebar-container {
+    padding: 2rem;
+    color: #ffffff;
+    background-color: #373737;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 242px; /* Ensure this matches the margin-left of .main-flex-container */
+    z-index: 1; /* Ensure sidebar is above the main content */
 }
 
 .main-graph-grid {
@@ -40,14 +52,6 @@ body {
     display: grid;
     grid-template-columns: repeat(4, minmax(100px, 1fr));
     gap: 1rem;
-}
-
-.sidebar-container {
-    padding: 2rem;
-    color: #ffffff;
-    background-color: #373737;
-    flex-shrink: 0;
-    min-width: 242px;
 }
 
 .title-paragraph {
@@ -73,6 +77,7 @@ body {
     aspect-ratio: 16/9;
     background-color: #666666;
     display: block;
+    min-width: 35px;
 }
 
 .row-img {
@@ -142,6 +147,16 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 0.4rem 0.2rem;
+}
+
+.sample-container {
+    margin-bottom: 20px; /* Space between each sample */
+}
+
+.graphs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr)); /* Adjust as needed */
+    gap: 10px; /* Space between grid items */
 }
 
 /* Sidebar */
@@ -247,6 +262,15 @@ select {
     transform: rotate(-90deg);
 }
 
+.closedArrow{
+    transition: transform 0.3s ease;
+    transform: rotate(-90deg);
+}
+
+.closedArrow.open {
+    transform: rotate(0deg);
+}
+
 .custom-dropdown {
     position: relative;
     cursor: pointer;
@@ -349,7 +373,7 @@ select {
     table-layout: fixed;    /* This ensures uniform column width */
     color: #f5f5f5;    /* Dark text color */
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
     align-items: center;
     padding: left right 5px;
 }
@@ -378,6 +402,8 @@ select {
     display: flex;
     align-items: center;    /* This will work with flexbox */
     justify-content: flex-start;    /* Aligns content to the left */
+    min-height: 30px;
+    font-size: 12px;
 }
 
 /* Row styling for hover effect */
@@ -409,6 +435,12 @@ select {
     .table-view table {
         width: auto;
     }
+}
+
+.table-cell {
+    white-space: nowrap !important;      /* Prevents text from wrapping to the next line */
+    overflow: hidden;         /* Hides any overflow content */
+    text-overflow: ellipsis;  /* Adds an ellipsis (...) to any text that overflows */
 }
 
 /* Table resizer style */
