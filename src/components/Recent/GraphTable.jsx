@@ -1,5 +1,6 @@
 import React from "react";
 import { useTable, useFlexLayout, useResizeColumns } from "react-table";
+import styles from '../Common/Table.module.css';
 
 export const GraphTable = ({ columns, data, onRowClick }) => {
   const defaultColumn = React.useMemo(
@@ -36,8 +37,8 @@ export const GraphTable = ({ columns, data, onRowClick }) => {
   };
 
   return (
-    <div className="table-view">
-    <div className="table-container">
+  <div className={styles['table-view']}>
+    <div className={styles['table-container']}>
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -49,9 +50,7 @@ export const GraphTable = ({ columns, data, onRowClick }) => {
                   {columnIndex < headerGroup.headers.length - 1 && (
                     <div
                       {...column.getResizerProps()}
-                      className={`resizer ${
-                        column.isResizing ? "isResizing" : ""
-                      }`}
+                      className={`${styles['resizer']} ${column.isResizing ? styles['is-resizing'] : ''}`}
                       onClick={(event) => event.stopPropagation()}
                     />
                   )}

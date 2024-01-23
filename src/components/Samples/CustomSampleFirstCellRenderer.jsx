@@ -1,6 +1,5 @@
 import React from "react";
-import { Tooltip } from './Tooltip.jsx'
-import { Arrow } from './Arrow';
+import { ClosedArrow } from '../Common/Arrow.jsx';
 
 /**
  * Exports a custom cell renderer for the first column of the samples table view.
@@ -82,7 +81,7 @@ export const CustomSampleFirstCellRenderer = ({ value, row, rows, rowIndex, coll
           }}
           >
           <span style={{ paddingLeft: `${indent}px`, marginBottom: '6px' }}>
-            <Arrow isOpen={!collapsedRows[row.original.id]} />
+            <ClosedArrow isOpen={!collapsedRows[row.original.id]} />
           </span>
         </span>
         {/* cell content */}
@@ -104,7 +103,7 @@ export const CustomSampleFirstCellRenderer = ({ value, row, rows, rowIndex, coll
           }}
           >
           <span style={{ paddingLeft: `${indent}px` }}>
-            <Arrow isOpen={!collapsedRows[row.original.id]} />
+            <ClosedArrow isOpen={!collapsedRows[row.original.id]} />
           </span>
         </span>
         {/* cell content */}

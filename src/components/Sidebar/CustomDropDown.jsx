@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import styles from './CustomDropDown.module.css';
+import { OpenArrow } from '../Common/Arrow';
 
 export const CustomDropdown = ({ selectedValue, options, onSelect, placeholder, onSelectionChange }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,17 +34,15 @@ export const CustomDropdown = ({ selectedValue, options, onSelect, placeholder, 
     }, [isOpen]);
 
     return (
-        <div className={`custom-dropdown ${isOpen ? 'open' : ''}`} ref={dropdownRef}>
-            <div className="dropdown-selected" onClick={toggleDropdown}>
+        <div className={`${styles['custom-dropdown']} ${isOpen ? styles.open : ''}`} ref={dropdownRef}>
+            <div className={styles['dropdown-selected']} onClick={toggleDropdown}>
                 <span>{placeholder}</span>
                 {/* SVG Arrow */}
-                <svg className={`arrow ${isOpen ? 'open' : ''}`} width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M8 10l4 4 4-4" stroke="#949494" strokeWidth="2" fill="none"/>
-                </svg>
+                <OpenArrow isOpen={isOpen} />
             </div>
-            <div className={`dropdown-options ${isOpen ? 'open' : ''}`}>
+            <div className={`${styles['dropdown-options']} ${isOpen ? styles.open : ''}`}>
                 {options.map((option, index) => (
-                    <div key={index} className="dropdown-option" onClick={() => handleOptionSelect(option)}>
+                    <div key={index} className={styles['dropdown-option']} onClick={() => handleOptionSelect(option)}>
                         {option.label}
                     </div>
                 ))}

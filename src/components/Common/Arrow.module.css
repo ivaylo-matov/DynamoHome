@@ -1,0 +1,36 @@
+.closedArrow{
+    transition: transform 0.3s ease;
+    transform: rotate(-90deg);
+}
+
+.closedArrow.open {
+    transform: rotate(0deg);
+}
+
+.closedArrow.left {
+    /* styles for left orientation */
+    transform: rotate(90deg);
+}
+
+.closedArrow.right {
+    /* styles for right orientation */
+    transform: rotate(-90deg);
+}
+
+/* Open Arrow */
+.openArrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.openArrow.open {
+    transform: rotate(180deg);    /* Flip the arrow when open */
+}
+
+.openArrow.left {
+    transform: rotate(90deg);
+}
+
+.openArrow.right {
+    transform: rotate(-90deg);
+}

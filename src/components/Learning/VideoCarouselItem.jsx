@@ -1,5 +1,6 @@
 import React from 'react';
-import { Tooltip } from './Tooltip.jsx'
+import { Tooltip } from '../Common/Tooltip.jsx'
+import styles from './VideoCarouselItem.module.css';
 
 export function VideoCarouselItem({ id, title, videoId, description }) {
     const youtubeEmbedUrl = `https://www.youtube.com/embed/${videoId}`;
@@ -12,24 +13,23 @@ export function VideoCarouselItem({ id, title, videoId, description }) {
         {description}
     </div>
 
-
     return (
-        <div className="video-container">
-            <div className="clipped-video-container">
+        <div className={styles['video-container']}>
+            <div className={styles['clipped-video-container']}>
                 {/* Embed YouTube Video */}
                 <iframe 
                     src={youtubeEmbedUrl} 
-                    className="clipped-video"
+                    className={styles['clipped-video']}
                     title={title}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen>
                 </iframe>
             </div>
-            <div className="custom-video-container">
-                <p className="graph-item-title-text graph-card-text-item">{title}</p>
+            <div className={styles['custom-video-container']}>
+                <p className={`${styles['video-item-title-text']} ${styles['video-card-text-item']}`}>{title}</p>
                 <Tooltip verticalOffset={20} content={tooltip}>
-                    <p className="graph-item-subtitle-text graph-card-text-item">
+                    <p className={`${styles['video-item-subtitle-text']} ${styles['video-card-text-item']}`}>
                         {description}
                     </p>
                 </Tooltip>

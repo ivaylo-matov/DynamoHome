@@ -1,0 +1,75 @@
+/* Custom Select Component Stylesheet */
+.custom-dropdown {
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.custom-dropdown.open,
+.custom-dropdown:hover {
+    border-bottom-color: #38abdf;
+}
+
+.custom-dropdown.open::after,
+.custom-dropdown::after {
+    /* Create a pseudo-element for the 5px thick rectangle */
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;    /* Position it just below the 1px border */
+    height: 5px;
+    background-color: #40687a;    /* Darker blue color */
+    opacity: 0;    /* Start with an invisible border */
+    transition: opacity 0.3s ease;    /* Transition for the opacity */
+}
+
+.custom-dropdown:hover::after {
+    opacity: 1;
+}
+
+.custom-dropdown.open:not(:hover) {
+    border-bottom-color: white;
+}
+
+.custom-dropdown.open:not(:hover)::after {
+    background-color: #808080;
+    opacity: 1;
+}
+
+.dropdown-selected {
+    display: flex;    /* Use flexbox layout */
+    justify-content: space-between;    /* Space between items */
+    align-items: center;    /* Align items vertically */
+    padding: 10px;
+    padding-left: 14px;
+    padding-right: 6px;
+    background-color: #292929;
+}
+
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #535353;
+    display: none;
+    margin-top: 3px;
+    z-index: 1000;
+}
+
+.dropdown-options.open {
+    display: block;
+}
+
+.dropdown-option{
+    padding: 10px;
+}
+
+.dropdown-option:hover {
+    background-color: #434343;
+}
+

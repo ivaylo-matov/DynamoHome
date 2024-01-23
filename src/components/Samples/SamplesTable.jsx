@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTable, useFlexLayout, useResizeColumns } from 'react-table';
+import styles from '../Common/Table.module.css';
 
 export const SamplesTable = ({ columns, data, onRowClick, onCollapsedRowsChange }) => {
   const [collapsedRows, setCollapsedRows] = useState({});
@@ -74,8 +75,8 @@ export const SamplesTable = ({ columns, data, onRowClick, onCollapsedRowsChange 
   );
 
   return (
-    <div className="table-view">
-      <div className="table-container">
+  <div className={styles['table-view']}>
+    <div className={styles['table-container']}>
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
@@ -87,7 +88,7 @@ export const SamplesTable = ({ columns, data, onRowClick, onCollapsedRowsChange 
                     {columnIndex < headerGroup.headers.length - 1 && (
                       <div
                         {...column.getResizerProps()}
-                        className={`resizer ${column.isResizing ? 'isResizing' : ''}`}
+                        className={`${styles['resizer']} ${column.isResizing ? styles['is-resizing'] : ''}`}
                         onClick={(event) => event.stopPropagation()}
                       />
                     )}
@@ -136,7 +137,7 @@ export const SamplesTable = ({ columns, data, onRowClick, onCollapsedRowsChange 
 
                     // Default rendering for other cells
                     return <td {...cell.getCellProps({
-                      className: "table-cell"
+                      className: `${styles['table-cell']}`
                   })}>{cell.render('Cell')}</td>;
                   })}
                 </tr>

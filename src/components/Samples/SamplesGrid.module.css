@@ -1,0 +1,11 @@
+/* Samples Grid Stylesheet */
+
+.sample-container {
+    margin-bottom: 20px; /* Space between each sample */
+}
+
+.graphs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr)); /* Adjust as needed */
+    gap: 10px; /* Space between grid items */
+}

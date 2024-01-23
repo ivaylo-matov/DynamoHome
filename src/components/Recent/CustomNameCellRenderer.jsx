@@ -1,6 +1,9 @@
 import React from "react";
-import { img } from '../assets/home.js';
-import { Tooltip } from './Tooltip.jsx'
+import { img } from '../../assets/home.js';
+import { Tooltip } from '../Common/Tooltip.jsx';
+import styles from './CustomCellRenderer.module.css';
+import cardStyles from '../Common/CardItems.module.css';
+
 
 /**
  * Exports a custom cell renderer for the first column of the table view.
@@ -12,10 +15,10 @@ export const CustomNameCellRenderer = ({ value, row }) => {
   const Caption = value;
 
   return (
-    <div className="title-cell">
-      <a className="graph-link row-img">
-        <div className="clipped-image-container row-img-container">
-          <img src={imgSrc} className="clipped-image" />
+    <div className={styles["title-cell"]}>
+      <a className={`${styles['graph-link']} ${styles['row-img']}`}>
+        <div className={`${cardStyles['clipped-image-container']} ${styles['row-img-container']}`}>
+          <img src={imgSrc} className={cardStyles['clipped-image']} />
         </div>
       </a>
         <div>

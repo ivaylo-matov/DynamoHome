@@ -1,5 +1,6 @@
 import React from "react";
-import { Tooltip } from './Tooltip.jsx'
+import { Tooltip } from '../Common/Tooltip.jsx';
+import styles from './CustomCellRenderer.module.css';
 
 /**
  * Exports a custom cell renderer for the location column of the table view.
@@ -9,7 +10,7 @@ export const CustomLocationCellRenderer = ({ value }) => {
   const Caption = value;
 
   return (
-    <div className="title-cell">
+    <div className={styles["title-cell"]}>
         <div>
           <Tooltip content={Caption}>
             {Caption}

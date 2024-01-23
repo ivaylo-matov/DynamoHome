@@ -1,8 +1,7 @@
 import React from 'react';
-import { useState, useEffect } from 'react'
-import { RecentPage } from './PageRecent.jsx'
-import { SamplesPage } from './PageSamples.jsx'
-import { LearningPage } from './PageLearning.jsx'
+import { RecentPage } from './Recent/PageRecent.jsx'
+import { SamplesPage } from './Samples/PageSamples.jsx'
+import { LearningPage } from './Learning/PageLearning.jsx'
 
 export function MainContent({ selectedSidebarItem }){
 

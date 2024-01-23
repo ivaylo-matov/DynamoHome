@@ -32,4 +32,16 @@ export function sideBarCommand(value){
   if(value === 'custom-node' && chrome.webview !== undefined){
       chrome.webview.hostObjects.scriptObject.NewCustomNodeWorkspace();
   }
+  if(value === 'open-backup-locations' && chrome.webview !== undefined){
+    chrome.webview.hostObjects.scriptObject.ShowBackupFilesInFolder();
+  } 
+}
+
+/**
+ * A call to a backend function requesting the execution of the ShowSampleFilesInFolder function
+ */
+export function showSamplesFilesInFolder(){
+  if (chrome.webview !== undefined){
+    chrome.webview.hostObjects.scriptObject.ShowSampleFilesInFolder();
+  }
 }

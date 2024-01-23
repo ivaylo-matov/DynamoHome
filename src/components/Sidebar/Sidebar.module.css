@@ -1,0 +1,87 @@
+/* Sidebar Component Stylesheet */
+.sidebar-container {
+    padding: 2rem;
+    color: #ffffff;
+    background-color: #373737;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 242px; /* Ensure this matches the margin-left of .main-flex-container */
+    z-index: 1; /* Ensure sidebar is above the main content */
+}
+
+.sidebar-grid-container {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    height: 100vh;
+}
+
+.cell {
+    position: relative;
+}
+
+.dynamo-logo {
+    font-size: 32px;
+    margin: 0;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.sidebar-items-container {
+    margin-top: 2rem;
+}
+
+.sidebar-items-container>*+* {
+    margin-top: 1rem;
+}
+
+.sidebar-link-container {
+    margin-top: 0px !important;
+    margin-left: -32px;
+    margin-right: -32px;
+    padding: 1em;
+    padding-left: 32px;
+    padding-right: 32px;
+    font-weight: medium;
+    cursor: pointer;
+}
+
+.sidebar-link-container.selected {
+    background-color: #535353;
+}
+
+.sidebar-text {
+    margin: 0px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.separator {
+    position: absolute;    /* Set the position to absolute */
+    bottom: 0;    /* Align to the bottom of the cell */
+    left: 0;    /* Align to the left of the cell */
+    width: 100%;
+    border: none;
+    height: 1px;
+    background-color: #4b4b4b;    /* Separator color */
+}
+
+.link-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 180px;
+}
+
+.sidebar-link {
+    color: #6dd2ff;
+    text-decoration: none;
+    margin-top: 0.5em;
+    font-size: 14px;
+}
+
+.sidebar-link:hover {
+    text-decoration: underline;
+}

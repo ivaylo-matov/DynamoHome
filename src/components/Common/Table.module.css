@@ -1,0 +1,100 @@
+/* Basic reset for table styling */
+.table-view table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;    /* This ensures uniform column width */
+    color: #f5f5f5;    /* Dark text color */
+    font-weight: 400;
+    font-size: 12px;
+    align-items: center;
+    padding: left right 5px;
+}
+
+/* Styling for table headers */
+.table-view th {
+    background-color: #3f3f3f;    /* Light grey background */
+    text-align: left;
+    font-weight: 400;
+    padding: 8px;    /* Adjust padding as needed */
+    border-bottom: 2px solid #515151;    /* Adds a border below the header */
+    border-right: 1px solid rgba(117, 117, 117, 0.5);
+    position: relative;
+}
+
+/* Styling for table cells */
+.table-view td {
+    border-bottom: 1px solid #515151;    /* Adds a border between rows */
+    border-right: 1px solid rgba(117, 117, 117, 0.5);
+    text-align: left;    /* Align text to the left */
+    vertical-align: middle;    /* Vertically align text in the middle */
+    overflow: hidden;    /* Ensures content doesn't overflow */
+    text-overflow: ellipsis;    /* Adds an ellipsis for overflowed text */
+    white-space: nowrap;    /* Prevents text wrapping */
+    padding: 0px 8px;
+    display: flex;
+    align-items: center;    /* This will work with flexbox */
+    justify-content: flex-start;    /* Aligns content to the left */
+    min-height: 30px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Row styling for hover effect */
+.table-view tr:hover {
+    background-color: rgba(117, 117, 117, 0.5);
+}
+
+.table-view td:last-child,
+.table-view th:last-child {
+    border-right: none;
+    white-space: nowrap; /* Do not allow text to wrap within the cell */
+    padding-right: 2px; /* Add right padding to the last cell */
+    cursor: pointer;
+}
+
+/* Adjust the width of specific columns, if needed */
+.table-view .column-title {
+    width: 40%;    
+}
+
+.table-view .column-author {
+    width: 20%;
+}
+
+@media screen and (max-width: 600px) {
+    .table-view td {
+        white-space: normal;
+    }
+
+    .table-view table {
+        width: auto;
+    }
+}
+
+.table-cell {
+    white-space: nowrap !important;      /* Prevents text from wrapping to the next line */
+    overflow: hidden;         /* Hides any overflow content */
+    text-overflow: ellipsis;  /* Adds an ellipsis (...) to any text that overflows */
+}
+
+/* Table resizer style */
+.resizer {
+    display: inline-block;
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(50%);
+    z-index: 1;
+    touch-action: none;
+    background: rgba(117, 117, 117, 0.3);   
+}
+
+.resizer:hover {
+    background: #aaa;    /* change color on hover for better visibility */
+}
+
+.th {
+    position: relative;    /* Required to position the resizer */
+}

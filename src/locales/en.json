@@ -9,5 +9,6 @@
     "tooltip.text.list.view.button": "List view",
     "learning.title.text.learning": "Learning",
     "learning.title.text.guides": "Interactive Guides",
-    "learning.title.text.videos": "Video Tutorials"
+    "learning.title.text.videos": "Video Tutorials",
+    "samples.showsamples.text": "Show Samples in Folder"
 }

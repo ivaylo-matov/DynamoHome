@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { OpenArrow } from '../Common/Arrow';
+import styles from './Carousel.module.css';
 
 export const Carousel = ({ children }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,21 +17,17 @@ export const Carousel = ({ children }) => {
     }
 
     return (
-        <div className="carousel-container">
+        <div className={styles['carousel-container']}>
             <button onClick={goLeft}>
-                <svg className="arrow left" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M8 10l4 4 4-4" stroke="#949494" strokeWidth="2" fill="none"/>
-                </svg>
+                <OpenArrow isOpen={true} direction="left" />
             </button>
-            <div className="carousel-content-wrapper">
-                <div className="carousel-content" style={{ transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)` }}>
+            <div className={styles['carousel-content-wrapper']}>
+                <div className={styles['carousel-content']} style={{ transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)` }}>
                     {children}
                 </div>
             </div>
             <button onClick={goRight}>
-                <svg className="arrow right" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M8 10l4 4 4-4" stroke="#949494" strokeWidth="2" fill="none"/>
-                </svg>
+                <OpenArrow isOpen={false} direction="right" />
             </button>
         </div>
     );

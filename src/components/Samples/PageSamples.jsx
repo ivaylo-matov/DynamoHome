@@ -2,12 +2,11 @@ import React from "react";
 import { useState, useEffect } from 'react';
 import { SamplesTable } from './SamplesTable.jsx';
 import { FormattedMessage } from 'react-intl';
-import { GraphGridItem } from './GraphGridItem.jsx';
-import { GridViewIcon, ListViewIcon } from './CustomIcons.jsx';
-import { Tooltip } from './Tooltip.jsx';
+import { GridViewIcon, ListViewIcon } from '../Common/CustomIcons.jsx';
+import { Tooltip } from '../Common/Tooltip.jsx';
 import { CustomSampleFirstCellRenderer } from "./CustomSampleFirstCellRenderer.jsx";
 import { SamplesGrid } from './SamplesGrid.jsx';
-import { openFile } from './../functions/utility.js';
+import { openFile, showSamplesFilesInFolder } from '../../functions/utility.js';
 
 export function SamplesPage (){
     const [viewMode, setViewMode] = useState('grid'); 
@@ -18,7 +17,7 @@ export function SamplesPage (){
     
     // If we are under development, we will load the graphs from the local asset folder
     if (process.env.NODE_ENV === 'development') {
-        initialSamples = require('../assets/samples.js').samples;
+        initialSamples = require('../../assets/samples.js').samples;
     }
 
     const [samples, setSamples] = useState(initialSamples);    
@@ -83,6 +82,11 @@ export function SamplesPage (){
         openFile(row.FilePath);
     };
 
+    // Handles show samples link click
+    const handleShowSamplesClick = () => {
+        showSamplesFilesInFolder();
+    }
+
     return(
         <div>
             <div className='drop-shadow-2xl'>
@@ -108,10 +112,15 @@ export function SamplesPage (){
             </div>
             <div>
                 {viewMode === 'list' && (
-                    <SamplesTable columns={columns} data={samples} onRowClick={handleRowClick} onCollapsedRowsChange={handleCollapsedRowsChange}/>
+                        <SamplesTable columns={columns} data={samples} onRowClick={handleRowClick} onCollapsedRowsChange={handleCollapsedRowsChange}/>
                 )}                
-                {viewMode === 'grid' && (                    
-                    <SamplesGrid data={samples}/>
+                {viewMode === 'grid' && (  
+                    <div style={{ marginBottom: "20px" }}>
+                        <SamplesGrid data={samples}/>
+                        <div style={{ marginTop: "30px", color: "white" }}>
+                            <a style={{ cursor: "pointer" }} target="_blank" rel="noopener noreferrer" onClick={handleShowSamplesClick}><FormattedMessage id="samples.showsamples.text" /></a>
+                        </div>
+                    </div>
                 )}
             </div>
         </div>

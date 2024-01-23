@@ -1,0 +1,25 @@
+.carousel-container {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-content-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-content {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-container button {
+    background: none;
+    border: none;
+    outline: none; /* Removes the focus outline */
+    cursor: pointer;
+    padding: 0; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

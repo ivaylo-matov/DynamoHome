@@ -4,10 +4,10 @@ import { GraphGridItem } from './GraphGridItem.jsx';
 import { CustomNameCellRenderer } from './CustomNameCellRenderer.jsx';
 import { CustomLocationCellRenderer } from './CustomLocationCellRenderer.jsx';
 import { GraphTable } from './GraphTable.jsx';
-import { GridViewIcon, ListViewIcon } from './CustomIcons.jsx';
-import { openFile } from './../functions/utility.js';
+import { GridViewIcon, ListViewIcon } from '../Common/CustomIcons.jsx';
+import { openFile } from '../../functions/utility.js';
 import { FormattedMessage } from 'react-intl';
-import { Tooltip } from './Tooltip.jsx'
+import { Tooltip } from '../Common/Tooltip.jsx';
 
 export function RecentPage (){
     const [displayText, setDisplayText] = useState('Test');
@@ -18,7 +18,7 @@ export function RecentPage (){
     
     // If we are under development, we will load the graphs from the local asset folder
     if (process.env.NODE_ENV === 'development') {
-        initialGraphs = require('../assets/home.js').graphs;
+        initialGraphs = require('../../assets/home.js').graphs;
     }
 
     const [graphs, setGraphs] = useState(initialGraphs);    

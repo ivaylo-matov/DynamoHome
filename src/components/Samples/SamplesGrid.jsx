@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import { useTable, useFlexLayout, useResizeColumns } from "react-table";
+import React from "react";
 import { SamplesGridItem } from "./SamplesGridItem";
-
+import styles from './SamplesGrid.module.css';
 
 const renderSample = (sample, key) => {
     if (sample.Children && sample.Children.length > 0) {
@@ -10,11 +9,11 @@ const renderSample = (sample, key) => {
         const nestedNodes = sample.Children.filter(child => child.Children && child.Children.length > 0);
 
         return (
-            <div key={key} className="sample-container">
+            <div key={key} className={styles["sample-container"]}>
                 <div className='drop-shadow-2xl'>
                     <p className='title-paragraph'>{sample.FileName}</p>
                 </div>
-                <div className="graphs-grid">
+                <div className={styles["graphs-grid"]}>
                     {leafNodes.map((child, index) => (
                         <SamplesGridItem key={child.FileName || index} FileName={child.FileName} FilePath={child.FilePath} />
                     ))}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { MainContent } from './components/MainContent.jsx';
-import { Sidebar } from './components/Sidebar.jsx';
+import { Sidebar } from './components/Sidebar/Sidebar.jsx';
 import { IntlProvider } from 'react-intl';
 import { getMessagesForLocale } from './localization/localization.js';
 

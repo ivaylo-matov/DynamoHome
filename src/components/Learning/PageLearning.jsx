@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import { VideoCarouselItem } from './VideoCarouselItem.jsx';
-import { videos } from './../assets/learning.js';
+import { videos } from '../../assets/learning.js';
 import { Carousel } from "./Carousel.jsx";
 import { GuideGridItem } from "./GuideGridItem.jsx";
 import { FormattedMessage } from 'react-intl';
@@ -12,7 +12,7 @@ export function LearningPage(){
 
     // If we are under development, we will load the graphs from the local asset folder
     if (process.env.NODE_ENV === 'development') {
-        initialGuides = require('../assets/learning.js').guides;
+        initialGuides = require('../../assets/learning.js').guides;
     }
 
     const [guides, setGuides] = useState(initialGuides);    
