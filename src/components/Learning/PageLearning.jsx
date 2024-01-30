@@ -39,7 +39,6 @@ export function LearningPage(){
 
         // Cleanup function (optional)
         return () => {
-            delete window.setLoadingDone;
             if (process.env.NODE_ENV !== 'development') {
                 delete window.receiveInteractiveGuidesDataFromDotNet;
             }
@@ -51,9 +50,6 @@ export function LearningPage(){
             <div className='drop-shadow-2xl'>
                 <p className='title-paragraph'><FormattedMessage id="learning.title.text.learning" /></p>  
             </div>
-            <br/>
-            <br/>
-            <br/>
             <div>
                 <div className='drop-shadow-2xl'>
                     <p className='title-paragraph'><FormattedMessage id="learning.title.text.guides" /></p>  

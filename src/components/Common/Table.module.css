@@ -80,7 +80,7 @@
 /* Table resizer style */
 .resizer {
     display: inline-block;
-    width: 2px;
+    width: 3px;
     height: 100%;
     position: absolute;
     right: 0;

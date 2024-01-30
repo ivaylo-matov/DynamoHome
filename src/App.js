@@ -1,25 +1,15 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { MainContent } from './components/MainContent.jsx';
-import { Sidebar } from './components/Sidebar/Sidebar.jsx';
 import { IntlProvider } from 'react-intl';
 import { getMessagesForLocale } from './localization/localization.js';
+import { LayoutContainer } from './components/LayoutContainer.jsx';
 
 function App() {
   console.log('Initiating react app');
 
-  // State to track the selected sidebar item
-  const [selectedSidebarItem, setSelectedSidebarItem] = useState('Recent');
   const [locale, setLocale] = useState('en');
-
   // Function to get messages based on locale
   const messages = getMessagesForLocale(locale);
-
-  // Event handler for sidebar item click
-  const handleSidebarItemClick = (item) => {
-    setSelectedSidebarItem(item);
-  }
-
   
   useEffect(() => {
     window.setLocale = (newLocale) => {
@@ -33,19 +23,7 @@ function App() {
 
      return (
       <IntlProvider locale={locale} messages={messages}>
-        <div className='main-container'>
-          <div className='main-flex-container'>
-
-            {/* Sidebar */}
-            <Sidebar 
-              onItemSelect={handleSidebarItemClick}
-              selectedSidebarItem={selectedSidebarItem}
-            />
-            {/* Main Body */}
-            <MainContent selectedSidebarItem={selectedSidebarItem}/>
-
-          </div>
-        </div>
+        <LayoutContainer />
       </IntlProvider>
     );
   }

@@ -16,29 +16,83 @@ body {
 /* Main Page Styles */
 .main-container {
     min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     background-color: #535353;
     overflow-y: auto;
-    max-height: 100vh;
 }
 
 .main-flex-container {
     display: flex;
-    flex-grow: 1;
     /* Add a left margin to account for the sidebar width */
-    margin-left: 325px; /* Adjust as per the sidebar width */
+    height: 100vh; /* Set the height to viewport height */
+    overflow: hidden; /* Prevent the flex container from scrolling */
+    width: 100%;
 }
 
 .main-body-container {
+    position: relative;
     overflow-x: hidden;
+    overflow-y: auto; /* Add vertical scroll only to the main content */
+    height: 100vh; /* Adjust height as necessary */
     padding: 1.25rem;
     flex-grow: 1;
+}
+
+.disabled {
+    opacity: 0.6;
+    pointer-events: none; /* This makes all elements inside non-interactive */
+    cursor: not-allowed;
+}
+
+.sidebar-container {
+    box-sizing: border-box; 
+    padding: 2rem;
+    color: #ffffff;
+    background-color: #373737;
+    z-index: 1; /* Ensure sidebar is above the main content */
+}
+
+/* Loading animation screen */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(83, 83, 83, 0.8); /* half-opaque grey */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* ensure it's above other content */
+}
+
+.spinner {
+    border: 3px solid #676767; /* Light grey */
+    border-top: 3px solid #38ABDF; /* Blue */
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    margin-top: 20px;
+    color: #ffffff; /* white color text */
+    text-align: center;
+    font-size: 20px;
 }
 
 .main-graph-grid {
     margin-top: 0.5rem;
     display: grid;
-    grid-template-columns: repeat(4, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1rem;
 }
 
@@ -137,4 +191,28 @@ select {
     border-style: solid;
     border-color: transparent transparent #eeeeee transparent;
     transform: translateX(-50%);
+}
+
+/* Remove background color of the scrollbar track */
+::-webkit-scrollbar {
+  width: 14px; /* Adjust the width as needed */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 9999px;
+    background-color: #C1C1C1;
+}
+
+/* Style the scrollbar track (the area behind the thumb) */
+::-webkit-scrollbar-track {
+  background-color: transparent; /* Set to transparent to remove background color */
+  border-radius: 5px; /* Optional: Add border radius for rounded track */
+  margin-block: 2px;
+}
+
+::-webkit-scrollbar {
+  margin-right: 10px; /* Add margin to the right */
 }

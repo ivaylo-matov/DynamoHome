@@ -11,7 +11,8 @@ import cardStyles from '../Common/CardItems.module.css';
  * @param row - the data associate with this row containing all the information for the graph
  */
 export const CustomNameCellRenderer = ({ value, row }) => {
-  const imgSrc = row.original.thumbnail || img;
+  const imgSrc = row.original.Thumbnail || img;
+  const description = row.original.Description;
   const Caption = value;
 
   return (
@@ -22,9 +23,10 @@ export const CustomNameCellRenderer = ({ value, row }) => {
         </div>
       </a>
         <div>
-          <Tooltip content={Caption}>
-            {Caption}
-          </Tooltip>
+          {description
+            ? <Tooltip content={description}>{Caption}</Tooltip>
+            : Caption
+          }
         </div>
     </div>
   );

@@ -47,7 +47,6 @@ export function SamplesPage (){
 
         // Cleanup function (optional)
         return () => {
-            delete window.setLoadingDone;
             if (process.env.NODE_ENV !== 'development') {
                 delete window.receiveSamplesDataFromDotNet;
             }
@@ -87,12 +86,12 @@ export function SamplesPage (){
         showSamplesFilesInFolder();
     }
 
-    return(
+    return (
         <div>
             <div className='drop-shadow-2xl'>
                 <p className='title-paragraph'><FormattedMessage id="title.text.samples"/></p>  
             </div>
-            <div>
+            <div style={{ display: "flex", alignItems: "center", marginBottom:"10px" }}> 
                 <button 
                     className={`viewmode-button ${viewMode === 'grid' ? 'active' : ''}`}
                     onClick={() => setViewMode('grid')}
@@ -109,17 +108,17 @@ export function SamplesPage (){
                         <ListViewIcon/>
                     </Tooltip>
                 </button>
+                <div style={{ marginLeft: "auto", marginRight: "20px", color: "white" }}>
+                    <a style={{ cursor: "pointer", fontSize: "20px", color: "#6DD2FF" }} target="_blank" rel="noopener noreferrer" onClick={handleShowSamplesClick}><FormattedMessage id="samples.showsamples.text" /></a>
+                </div>
             </div>
-            <div>
+            <div style={{ marginRight: "20px" }}>
                 {viewMode === 'list' && (
                         <SamplesTable columns={columns} data={samples} onRowClick={handleRowClick} onCollapsedRowsChange={handleCollapsedRowsChange}/>
                 )}                
                 {viewMode === 'grid' && (  
-                    <div style={{ marginBottom: "20px" }}>
+                    <div style={{ marginBottom: "20px", marginRight: "30px" }}>
                         <SamplesGrid data={samples}/>
-                        <div style={{ marginTop: "30px", color: "white" }}>
-                            <a style={{ cursor: "pointer" }} target="_blank" rel="noopener noreferrer" onClick={handleShowSamplesClick}><FormattedMessage id="samples.showsamples.text" /></a>
-                        </div>
                     </div>
                 )}
             </div>

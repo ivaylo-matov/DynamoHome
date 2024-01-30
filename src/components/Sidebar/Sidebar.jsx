@@ -10,6 +10,8 @@ export function Sidebar({ onItemSelect, selectedSidebarItem })
 {
     const [selectedFile, setSelectedFile] = useState('');
     const [selectedNew, setSelectedNew] = useState('');
+    const [sidebarWidth, setSidebarWidth] = useState(305);
+    const compensateValue = 2;
 
     const isSelected = (item) => selectedSidebarItem === item;
 
@@ -18,9 +20,34 @@ export function Sidebar({ onItemSelect, selectedSidebarItem })
         sideBarCommand(value);
     };
 
+    useEffect(() => {        
+        const updateSidebarWidth = (newWidth) => {
+            const parsedWidth = parseInt(newWidth, 10); 
+            if (!isNaN(parsedWidth)) { 
+                console.log('Setting sidebar width from Dynamo:', parsedWidth);
+                setSidebarWidth(parsedWidth + compensateValue);
+            } else {
+                console.error('Invalid width value received:', newWidth);
+            }
+        };
+
+        // If we are under production, we will override the graphs with the actual data sent from Dynamo
+        if (process.env.NODE_ENV !== 'development') {
+            window.updateSidebarWidth = updateSidebarWidth;
+        }
+
+
+        // Cleanup function 
+        return () => {
+            if (process.env.NODE_ENV !== 'development') {
+                delete window.updateSidebarWidth;
+            }
+        };
+    }, [sidebarWidth]); 
+
     return (
         
-        <div className={styles['sidebar-container']}>
+        <div className={'sidebar-container'} style={{ minWidth: `${sidebarWidth}px` }}>
             <div className={styles['sidebar-grid-container']}>
                 <div className={styles.cell}>
                     <p className={styles['dynamo-logo']}>Dynamo</p>

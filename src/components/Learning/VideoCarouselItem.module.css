@@ -1,5 +1,4 @@
 /* Video Carousel Item Stylesheet */
-
 .video-container {
     flex: 0 0 calc(25% - 11px); /* Adjusted width to account for margin */
     height: 200px; /* Set a fixed height */

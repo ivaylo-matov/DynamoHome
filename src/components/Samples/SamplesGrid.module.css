@@ -6,6 +6,6 @@
 
 .graphs-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(150px, 1fr)); /* Adjust as needed */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust as needed */
     gap: 10px; /* Space between grid items */
 }

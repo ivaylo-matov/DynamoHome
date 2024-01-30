@@ -10,5 +10,6 @@
     "learning.title.text.learning": "Learning",
     "learning.title.text.guides": "Interactive Guides",
     "learning.title.text.videos": "Video Tutorials",
-    "samples.showsamples.text": "Show Samples in Folder"
+    "samples.showsamples.text": "Show Samples in Folder",
+    "main.page.loading.text": "Loading"
 }

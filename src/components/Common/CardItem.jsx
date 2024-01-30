@@ -9,13 +9,20 @@ export const CardItem = ({ imageSrc, onClick, tooltipContent, titleText, subtitl
                 <div className={styles['clipped-image-container']}>
                     <img src={imageSrc} className={styles['clipped-image']}/>
                 </div>
-                
-                <Tooltip content={tooltipContent}>
+                {tooltipContent
+                    ?
+                    <Tooltip content={tooltipContent}>
+                        <div className={styles['custom-container']}>
+                            <p className={`${styles['graph-item-title-text']} ${styles['graph-card-text-item']}`}>{titleText}</p>
+                            <p className={`${styles['graph-item-subtitle-text']} ${styles['graph-card-text-item']}`}>{subtitleText}</p>
+                        </div>
+                    </Tooltip>
+                    :
                     <div className={styles['custom-container']}>
                         <p className={`${styles['graph-item-title-text']} ${styles['graph-card-text-item']}`}>{titleText}</p>
                         <p className={`${styles['graph-item-subtitle-text']} ${styles['graph-card-text-item']}`}>{subtitleText}</p>
                     </div>
-                </Tooltip>
+                }
             </a>
         </div>
     );

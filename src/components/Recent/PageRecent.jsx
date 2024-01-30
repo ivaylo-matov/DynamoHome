@@ -9,7 +9,7 @@ import { openFile } from '../../functions/utility.js';
 import { FormattedMessage } from 'react-intl';
 import { Tooltip } from '../Common/Tooltip.jsx';
 
-export function RecentPage (){
+export function RecentPage ({ setIsDisabled }){
     const [displayText, setDisplayText] = useState('Test');
     const [viewMode, setViewMode] = useState('grid'); 
 
@@ -68,7 +68,7 @@ export function RecentPage (){
         },
         {
           Header: 'Author',
-          accessor: 'author',
+          accessor: 'Author',
           resizable: true,
         },
         {
@@ -78,7 +78,7 @@ export function RecentPage (){
         },
         {
           Header: 'Location',
-          accessor: 'Location',
+          accessor: 'ContextData',
           resizable: true,
           Cell: CustomLocationCellRenderer,
         }
@@ -86,7 +86,10 @@ export function RecentPage (){
 
     // Handles mouse click over each row
     const handleRowClick = (row) => {
-        const contextData = row.original.ContextData;        
+        // freezes the UI   
+        setIsDisabled(true);   
+        
+        const contextData = row.original.ContextData;  
         openFile(contextData);
     };
 
@@ -95,32 +98,32 @@ export function RecentPage (){
             <div className='drop-shadow-2xl'>
                 <p className='title-paragraph'><FormattedMessage id="title.text.recent"/></p>  
             </div>
-            <div>
-                    <button 
-                        className={`viewmode-button ${viewMode === 'grid' ? 'active' : ''}`}
-                        onClick={() => setViewMode('grid')}
-                        disabled={viewMode === 'grid'}>
-                        <Tooltip content={<FormattedMessage id="tooltip.text.grid.view.button" />}>
-                                <GridViewIcon/>
-                        </Tooltip>
-                    </button>
-                    <button 
-                        className={`viewmode-button ${viewMode === 'list' ? 'active' : ''}`}
-                        onClick={() => setViewMode('list')}
-                        disabled={viewMode === 'list'}>
-                        <Tooltip content={<FormattedMessage id="tooltip.text.list.view.button" />}>
-                            <ListViewIcon/>
-                        </Tooltip>
-                    </button>
+            <div style={{ display: "flex", alignItems: "center", marginBottom:"10px" }}>
+                <button 
+                    className={`viewmode-button ${viewMode === 'grid' ? 'active' : ''}`}
+                    onClick={() => setViewMode('grid')}
+                    disabled={viewMode === 'grid'}>
+                    <Tooltip content={<FormattedMessage id="tooltip.text.grid.view.button" />}>
+                            <GridViewIcon/>
+                    </Tooltip>
+                </button>
+                <button 
+                    className={`viewmode-button ${viewMode === 'list' ? 'active' : ''}`}
+                    onClick={() => setViewMode('list')}
+                    disabled={viewMode === 'list'}>
+                    <Tooltip content={<FormattedMessage id="tooltip.text.list.view.button" />}>
+                        <ListViewIcon/>
+                    </Tooltip>
+                </button>
             </div>
-            <div>
+            <div style={{ marginRight: "20px" }}>
                 {viewMode === 'list' && (
                     <GraphTable columns={columns} data={graphs} onRowClick={handleRowClick}/>
                 )}                
                 {viewMode === 'grid' && (
                     <div className="main-graph-grid">
                         {graphs.map(graph => (
-                            <GraphGridItem key={graph.id} {...graph} />
+                            <GraphGridItem key={graph.id} {...graph} setIsDisabled={setIsDisabled} />
                         ))}
                     </div>
                 )}
