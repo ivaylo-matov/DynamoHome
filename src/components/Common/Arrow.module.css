@@ -23,6 +23,10 @@
     transition: transform 0.3s ease;
 }
 
+.openArrow:hover path {
+    stroke: #C1C1C1;
+}
+
 .openArrow.open {
     transform: rotate(180deg);    /* Flip the arrow when open */
 }

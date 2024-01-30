@@ -54,7 +54,7 @@ export function LearningPage(){
                 <div className='drop-shadow-2xl'>
                     <p className='title-paragraph'><FormattedMessage id="learning.title.text.guides" /></p>  
                 </div>
-                <div className="main-graph-grid">
+                <div className="guides-graph-grid">
                     {guides.map(guide => (
                         <GuideGridItem key={guide.id} {...guide} />
                     ))}
