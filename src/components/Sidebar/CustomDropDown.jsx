@@ -37,6 +37,7 @@ export const CustomDropdown = ({ selectedValue, options, onSelect, placeholder, 
         <div className={`${styles['custom-dropdown']} ${isOpen ? styles.open : ''}`} ref={dropdownRef}>
             <div className={styles['dropdown-selected']} onClick={toggleDropdown}>
                 <span>{placeholder}</span>
+                <span className={styles['vertical-line']}></span>
                 {/* SVG Arrow */}
                 <OpenArrow isOpen={isOpen} />
             </div>

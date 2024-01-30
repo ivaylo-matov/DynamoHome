@@ -47,7 +47,25 @@
     padding: 10px;
     padding-left: 14px;
     padding-right: 6px;
+    background-color: transparent;
+    border-radius: 4px;
+    border: solid 1px #9B9B9B;
+}
+
+.dropdown-selected:hover .vertical-line{
+    background-color: transparent;
+}
+
+.dropdown-selected:hover {
     background-color: #292929;
+    border: solid 1px transparent;
+}
+
+/* Style for .dropdown-selected when active (e.g., when clicked) */
+.dropdown-selected:active {
+    background-color: #1e1e1e; /* Change background color when active */
+    color: #fff; /* Change text color when active */
+    /* Add any other styles you want for the active state */
 }
 
 .dropdown-options {
@@ -73,3 +91,13 @@
     background-color: #434343;
 }
 
+.vertical-line {
+    position: absolute;
+    right: 35px;
+    top: 0;
+    bottom: 0;
+    width: 1px; /* Adjust the width as needed */
+    height: 100%; /* Vertically extend the line to match the container */
+    background-color: #9B9B9B; /* Adjust the color as needed */
+    margin: 0 px; /* Add spacing to separate the line from text and arrow */
+}
