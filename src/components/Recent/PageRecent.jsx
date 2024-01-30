@@ -116,7 +116,7 @@ export function RecentPage ({ setIsDisabled }){
                     </Tooltip>
                 </button>
             </div>
-            <div style={{ marginRight: "20px" }}>
+            <div style={{ marginRight: "20px", paddingBottom: "35px" }}>
                 {viewMode === 'list' && (
                     <GraphTable columns={columns} data={graphs} onRowClick={handleRowClick}/>
                 )}                

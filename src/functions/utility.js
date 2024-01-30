@@ -35,6 +35,9 @@ export function sideBarCommand(value){
   if(value === 'open-backup-locations' && chrome.webview !== undefined){
     chrome.webview.hostObjects.scriptObject.ShowBackupFilesInFolder();
   } 
+  if(value === 'open-template' && chrome.webview !== undefined){
+    chrome.webview.hostObjects.scriptObject.ShowTempalte();
+  } 
 }
 
 /**

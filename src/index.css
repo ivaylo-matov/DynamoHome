@@ -1,3 +1,10 @@
+* {
+  -webkit-user-select: none;  /* Chrome, Safari, Opera */
+  -moz-user-select: none;     /* Firefox */
+  -ms-user-select: none;      /* Internet Explorer/Edge */
+  user-select: none;          /* Non-prefixed version, currently supported by Chrome, Opera, and Firefox */
+}
+
 :root {
     --text-secondary: #f5f5f5;
 }
@@ -23,7 +30,6 @@ body {
 }
 
 .main-flex-container {
-    display: flex;
     /* Add a left margin to account for the sidebar width */
     height: 100vh; /* Set the height to viewport height */
     overflow: hidden; /* Prevent the flex container from scrolling */
@@ -39,18 +45,33 @@ body {
     flex-grow: 1;
 }
 
-.disabled {
-    opacity: 0.6;
-    pointer-events: none; /* This makes all elements inside non-interactive */
-    cursor: not-allowed;
-}
-
 .sidebar-container {
     box-sizing: border-box; 
     padding: 2rem;
     color: #ffffff;
     background-color: #373737;
     z-index: 1; /* Ensure sidebar is above the main content */
+}
+
+.split-pane .Resizer.vertical {
+    width: 3px;       
+    cursor: col-resize;
+    background: #535353;  
+    opacity: 0.8;
+    box-sizing: border-box;
+    background-clip: padding-box;
+}
+
+.split-pane .Resizer.vertical:hover {
+    width: 3px;       
+    background: #646464;  
+    opacity: 0.2;
+}
+
+.disabled {
+    opacity: 0.6;
+    pointer-events: none; /* This makes all elements inside non-interactive */
+    cursor: not-allowed;
 }
 
 /* Loading animation screen */

@@ -112,9 +112,9 @@ export function SamplesPage (){
                     <a style={{ cursor: "pointer", fontSize: "20px", color: "#6DD2FF" }} target="_blank" rel="noopener noreferrer" onClick={handleShowSamplesClick}><FormattedMessage id="samples.showsamples.text" /></a>
                 </div>
             </div>
-            <div style={{ marginRight: "20px" }}>
+            <div style={{ marginRight: "20px", paddingBottom: "35px" }}>
                 {viewMode === 'list' && (
-                        <SamplesTable columns={columns} data={samples} onRowClick={handleRowClick} onCollapsedRowsChange={handleCollapsedRowsChange}/>
+                    <SamplesTable columns={columns} data={samples} onRowClick={handleRowClick} onCollapsedRowsChange={handleCollapsedRowsChange}/>
                 )}                
                 {viewMode === 'grid' && (  
                     <div style={{ marginBottom: "20px", marginRight: "30px" }}>

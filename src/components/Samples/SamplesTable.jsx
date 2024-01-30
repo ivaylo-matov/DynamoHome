@@ -110,7 +110,7 @@ export const SamplesTable = ({ columns, data, onRowClick, onCollapsedRowsChange 
               }
 
               return (
-                <tr
+                <tr 
                   {...row.getRowProps({
                     style: { cursor: isParentRow ? 'pointer' : 'default' },
                     onClick: isParentRow
