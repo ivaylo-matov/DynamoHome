@@ -72,7 +72,20 @@ The project has sufficient assets to cover the base-case implementation during d
 
     npm run build/bundle
 
-
+## Localization
+Localization is done via `react-intl` library. The current setup relies on the combination of these 2 elements:
+- localization files stored inside the `\src\locales\` folder (add as many localization files as needed)
+- adding new locales to the switch statement inside the `localization.js` file:
+```
+export const getMessagesForLocale = (locale) => {
+  switch(locale) {
+    case 'en':
+      return englishMessages;
+    default:
+      return englishMessages;
+  }
+}; 
+```
 
 ## 3rd party libraries and dependencies 
 The use of 3rd party libraries was kept to the bare minimum, where developing native elements would have resulted in exceptional time overhead.
