@@ -1,4 +1,4 @@
-# Dynamo-landing-page
+# Dynamo Home Page
 A react-based app to serve for Dynamo landing page. 
 
 
@@ -44,8 +44,8 @@ If you need to update `npm`, you can make it using `npm`!
 
 ## Install
 
-    git https://github.com/DynamoDS/HomePage (tbc)
-    cd HomePage
+    git https://github.com/DynamoDS/DynamoHomePage (tbc)
+    cd DynamoHomePage
     npm install --force
 
 ## Running the project
