@@ -26,6 +26,7 @@ export function Sidebar({ onItemSelect, selectedSidebarItem })
                     <p className={styles['dynamo-logo']}>Dynamo</p>
                     {/* Files Dropdown */}
                     <CustomDropdown 
+                        id="openDropdown"
                         selectedValue={selectedFile}
                         onSelect={setSelectedFile}
                         placeholder="Open"
@@ -39,6 +40,7 @@ export function Sidebar({ onItemSelect, selectedSidebarItem })
 
                     {/* New Dropdown */}
                     <CustomDropdown 
+                        id="newDropdown"
                         selectedValue={selectedNew}
                         onSelect={setSelectedNew}
                         placeholder="New"

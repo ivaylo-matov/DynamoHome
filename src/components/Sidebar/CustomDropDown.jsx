@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styles from './CustomDropDown.module.css';
 import { OpenArrow } from '../Common/Arrow';
 
-export const CustomDropdown = ({ selectedValue, options, onSelect, placeholder, onSelectionChange }) => {
+export const CustomDropdown = ({ id, selectedValue, options, onSelect, placeholder, onSelectionChange }) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
     const toggleDropdown = () => setIsOpen(!isOpen);
@@ -43,7 +43,7 @@ export const CustomDropdown = ({ selectedValue, options, onSelect, placeholder, 
             </div>
             <div className={`${styles['dropdown-options']} ${isOpen ? styles.open : ''}`}>
                 {options.map((option, index) => (
-                    <div key={index} className={styles['dropdown-option']} onClick={() => handleOptionSelect(option)}>
+                    <div id={`${id}-${index}`} key={index} className={styles['dropdown-option']} onClick={() => handleOptionSelect(option)}>
                         {option.label}
                     </div>
                 ))}

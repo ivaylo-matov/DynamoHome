@@ -22,7 +22,7 @@ export const Carousel = ({ children }) => {
                 <OpenArrow isOpen={true} direction="left" />
             </button>
             <div className={styles['carousel-content-wrapper']}>
-                <div className={styles['carousel-content']} style={{ transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)` }}>
+                <div id="videoCarousel" className={styles['carousel-content']} style={{ transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)` }}>
                     {children}
                 </div>
             </div>

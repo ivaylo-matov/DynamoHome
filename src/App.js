@@ -5,9 +5,8 @@ import { getMessagesForLocale } from './localization/localization.js';
 import { LayoutContainer } from './components/LayoutContainer.jsx';
 
 function App() {
-  console.log('Initiating react app');
-
   const [locale, setLocale] = useState('en');
+
   // Function to get messages based on locale
   const messages = getMessagesForLocale(locale);
   
@@ -15,7 +14,8 @@ function App() {
     window.setLocale = (newLocale) => {
       setLocale(newLocale);
     };
-    // Trigger the 'ApplicationLoaded()' command on the back end
+
+    // Trigger the 'ApplicationLoaded()' command on the backend
     if(chrome.webview !== undefined){
       chrome.webview.hostObjects.scriptObject.ApplicationLoaded();
       }

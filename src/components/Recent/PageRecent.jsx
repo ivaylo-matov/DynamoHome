@@ -121,7 +121,7 @@ export function RecentPage ({ setIsDisabled }){
                     <GraphTable columns={columns} data={graphs} onRowClick={handleRowClick}/>
                 )}                
                 {viewMode === 'grid' && (
-                    <div className="main-graph-grid">
+                    <div className="main-graph-grid" id="graphContainer">
                         {graphs.map(graph => (
                             <GraphGridItem key={graph.id} {...graph} setIsDisabled={setIsDisabled} />
                         ))}

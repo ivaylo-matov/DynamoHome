@@ -26,18 +26,18 @@ export function sideBarCommand(value){
   if (value === 'open-file' && chrome.webview !== undefined) {
     chrome.webview.hostObjects.scriptObject.OpenWorkspace();
   }
+  if(value === 'open-template' && chrome.webview !== undefined){
+    chrome.webview.hostObjects.scriptObject.ShowTempalte();
+  } 
+  if(value === 'open-backup-locations' && chrome.webview !== undefined){
+    chrome.webview.hostObjects.scriptObject.ShowBackupFilesInFolder();
+  } 
   if(value === 'workspace' && chrome.webview !== undefined){
       chrome.webview.hostObjects.scriptObject.NewWorkspace();
   }
   if(value === 'custom-node' && chrome.webview !== undefined){
       chrome.webview.hostObjects.scriptObject.NewCustomNodeWorkspace();
   }
-  if(value === 'open-backup-locations' && chrome.webview !== undefined){
-    chrome.webview.hostObjects.scriptObject.ShowBackupFilesInFolder();
-  } 
-  if(value === 'open-template' && chrome.webview !== undefined){
-    chrome.webview.hostObjects.scriptObject.ShowTempalte();
-  } 
 }
 
 /**

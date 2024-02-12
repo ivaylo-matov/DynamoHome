@@ -30,7 +30,6 @@ body {
 }
 
 .main-flex-container {
-    /* Add a left margin to account for the sidebar width */
     height: 100vh; /* Set the height to viewport height */
     overflow: hidden; /* Prevent the flex container from scrolling */
     width: 100%;
@@ -40,7 +39,7 @@ body {
     position: relative;
     overflow-x: hidden;
     overflow-y: auto; /* Add vertical scroll only to the main content */
-    height: 100vh; /* Adjust height as necessary */
+    height: 100vh; 
     padding: 1.25rem;
     flex-grow: 1;
 }

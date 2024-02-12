@@ -109,7 +109,7 @@ export function SamplesPage (){
                     </Tooltip>
                 </button>
                 <div style={{ marginLeft: "auto", marginRight: "20px", color: "white" }}>
-                    <a style={{ cursor: "pointer", fontSize: "20px", color: "#6DD2FF" }} target="_blank" rel="noopener noreferrer" onClick={handleShowSamplesClick}><FormattedMessage id="samples.showsamples.text" /></a>
+                    <a id="showSampleFilesLink" style={{ cursor: "pointer", fontSize: "20px", color: "#6DD2FF" }} target="_blank" rel="noopener noreferrer" onClick={handleShowSamplesClick}><FormattedMessage id="samples.showsamples.text" /></a>
                 </div>
             </div>
             <div style={{ marginRight: "20px", paddingBottom: "35px" }}>

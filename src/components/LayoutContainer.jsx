@@ -23,6 +23,7 @@ export function LayoutContainer(){
               minSize={50}
               maxSize={600}
               defaultSize={sideBarWidth}>
+
               {/* Sidebar */}
               <Sidebar 
                 onItemSelect={handleSidebarItemClick}
@@ -31,6 +32,7 @@ export function LayoutContainer(){
               
               {/* Main Body */}
               <MainContent selectedSidebarItem={selectedSidebarItem}/>
+              
             </SplitPane>
           </div>
         </div>
