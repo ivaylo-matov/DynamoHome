@@ -1,7 +1,18 @@
 # Dynamo Home Page
 A react-based app to serve for Dynamo landing page. 
 
+## Layout
+The sidebar contains links to the 3 main modules of the Home Page:
+- Recent - points to the last 'n' number of files (the number of recent files can be changed by the user in Dynamo preferences window)
+- Samples - this is the location of the Sample files. Currently, this is empty under Dynamo Sandbox
+- Learning - a one-stop-shop for Dynamo learning resources
 
+### Recent module
+![image](https://github.com/dnenov/DynamoHomePage/assets/5354594/d47687b6-dd91-46eb-a9a3-f97eb44a7ddb)
+### Samples module
+![image](https://github.com/dnenov/DynamoHomePage/assets/5354594/21279b42-3a55-4f22-8872-e084035598ba)
+### Learning module
+![image](https://github.com/dnenov/DynamoHomePage/assets/5354594/c4cc53c7-8d3d-4d16-bd82-19530169c313)
 
 Dynamo HomePage WebApp which is used inside Dynamo. This application is specific to Dynamo and utilizes several specific endpoints to work as intended. 
 
