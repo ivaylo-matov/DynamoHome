@@ -60,6 +60,7 @@ If you need to update `npm`, you can make it using `npm`!
     npm install --force
 
 ## Running the project
+The project has sufficient assets to cover the base-case implementation during development. 
 
     npm start
 
