@@ -10,7 +10,6 @@ import { FormattedMessage } from 'react-intl';
 import { Tooltip } from '../Common/Tooltip.jsx';
 
 export function RecentPage ({ setIsDisabled }){
-    const [displayText, setDisplayText] = useState('Test');
     const [viewMode, setViewMode] = useState('grid'); 
 
     // Set a placeholder for the graphs which will be used differently during dev and prod 
@@ -22,11 +21,6 @@ export function RecentPage ({ setIsDisabled }){
     }
 
     const [graphs, setGraphs] = useState(initialGraphs);    
-
-    // To be removed, just for texting purposes
-    const setLoadingDone = (newText) => {
-        setDisplayText(newText);
-    };
 
     // A method exposed to the backend used to set the graph data coming from Dynamo
     const receiveGraphDataFromDotNet = (jsonData) => {
@@ -42,7 +36,6 @@ export function RecentPage ({ setIsDisabled }){
     };
 
     useEffect(() => {
-        window.setLoadingDone = setLoadingDone;
         // If we are under production, we will override the graphs with the actual data sent from Dynamo
         if (process.env.NODE_ENV !== 'development') {
             window.receiveGraphDataFromDotNet = receiveGraphDataFromDotNet;
@@ -50,7 +43,6 @@ export function RecentPage ({ setIsDisabled }){
 
         // Cleanup function (optional)
         return () => {
-            delete window.setLoadingDone;
             if (process.env.NODE_ENV !== 'development') {
                 delete window.receiveGraphDataFromDotNet;
             }
