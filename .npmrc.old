@@ -1,4 +1,0 @@
-registry=https://npm.autodesk.com/artifactory/api/npm/autodesk-npm-virtual
-@adsk:registry=https://npm.autodesk.com/artifactory/api/npm/autodesk-npm
-git-tag-version=false
-omit=peer

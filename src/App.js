@@ -23,7 +23,7 @@ function App() {
 
      return (
       <IntlProvider locale={locale} messages={messages}>
-        <LayoutContainer />
+        <LayoutContainer id='homeContainer'/>
       </IntlProvider>
     );
   }
