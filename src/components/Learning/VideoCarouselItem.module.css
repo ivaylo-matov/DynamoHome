@@ -21,6 +21,33 @@
     width: 100%;
     height: 100%;
 }
+	
+.expanded-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500%;
+    height: 500%;
+}
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 1; /* Ensure it's above the iframe */
+}
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10; /* Ensure it's above other content */
+}
 
 .custom-video-container {
     /* Additional styling for title and description */

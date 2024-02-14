@@ -1,12 +1,14 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src/index.js',  
   output: {
-    filename: 'bundle.js',
+    path: path.join(__dirname, '/dist/build'),
+    filename: 'index.bundle.js',
+    clean: true,
   },
   module: {
     rules: [
@@ -26,19 +28,24 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        terserOptions: {
+        },
+      }),
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-    }),
-    new BundleAnalyzerPlugin(),
+      template: './public/index.html'
+    })
   ],
-  optimization: {
-    // Use when analyzing the bundle.js size and make up
-    // concatenateModules: false,
-  },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, '/dist/build'),
     },
     hot: true,
     open: true,
