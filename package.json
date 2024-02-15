@@ -12,6 +12,8 @@
     "build:staging": "webpack --config webpack.config.js --mode=development --env staging",
     "build": "webpack --config webpack.config.js --mode=development --env prod",
     "bundle": "webpack --config webpack.config.js --mode=production",
+    "copy": "cp package.json dist/ && cp README.md dist/ && cp -r license_output dist/",
+    "production": "npm run bundle && npm run copy",
     "test:unit": "NODE_ENV=test jest tests/App.test.js",
     "test:e2e": "playwright test tests/e2e.test.js"
   },
