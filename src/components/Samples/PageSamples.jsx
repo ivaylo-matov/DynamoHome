@@ -24,6 +24,8 @@ export function SamplesPage (){
 
     // A method exposed to the backend used to set the samples data coming from Dynamo
     const receiveSamplesDataFromDotNet = (jsonData) => {
+        console.log('Received data from .NET:', jsonData);
+      
         try {
           // jsonData is already an object, so no need to parse it
           const data = jsonData;

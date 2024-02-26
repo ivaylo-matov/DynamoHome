@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: 'ArtifaktElement';
-    src: url('#fontStyle');
+    src: url('http://localhost/embeddedFonts/ArtifaktElement-Regular.woff');
 }
 
 body {
