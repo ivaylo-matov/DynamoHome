@@ -19,8 +19,6 @@ export function LearningPage(){
 
     // A method exposed to the backend used to set the interactive guides data coming from Dynamo
     const receiveInteractiveGuidesDataFromDotNet = (jsonData) => {
-        console.log('Received interactive guides data from .NET:', jsonData);
-
         try {
             // jsonData is already an object, so no need to parse it
             const data = jsonData;
