@@ -1,4 +1,6 @@
 import React from 'react';
+import styles from '../Common/CustomIcons.module.css';
+
 export const GridViewIcon = () => (
   <svg
     width="36"
@@ -36,6 +38,7 @@ export const ListViewIcon = () => (
 export const QuestionMarkIcon = () => (
   <div style={{ verticalAlign: "center", marginLeft: "5px", marginTop: "4px", marginRight: "5px" }}>
     <svg
+       className={styles['questionMarkIcon']} 
       width="16"
       height="16"
       viewBox="0 0 16 16"

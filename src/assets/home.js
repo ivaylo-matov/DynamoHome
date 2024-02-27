@@ -24,7 +24,7 @@ export const graphs = [
         ContextData: "C:\\Users\\DeyanNenov\\Documents\\GitHub\\Dynamo\\bin\\AnyCPU\\Debug\\DynamoSandbox.exe",
         DateModified: "1/9/2024 6:24:35 PM",
         Thumbnail: img,
-        Author: "Dynamo 1.0 file format",
+        Author: "Dynamo 1.x file format",
     },
     {
         id: "4",

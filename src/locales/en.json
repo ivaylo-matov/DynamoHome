@@ -12,6 +12,6 @@
     "learning.title.text.videos": "Video Tutorials",
     "samples.showsamples.text": "Show Samples in Folder",
     "main.page.loading.text": "Loading",
-    "recent.item.old.format": "Dynamo 1.0 file format",
-    "recent.item.old.format.tooltip": "Author and thumbnail not available for files saved in Dynamo 1.0 format"
+    "recent.item.old.format": "Dynamo 1.x file format",
+    "recent.item.old.format.tooltip": "Author and thumbnail not available for files saved in Dynamo 1.x format"
 }
