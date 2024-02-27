@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { GraphGridItem } from './GraphGridItem.jsx';
 import { CustomNameCellRenderer } from './CustomNameCellRenderer.jsx';
 import { CustomLocationCellRenderer } from './CustomLocationCellRenderer.jsx';
+import { CustomAuthorCellRenderer } from "./CustomAuthorCellRenderer.jsx";
 import { GraphTable } from './GraphTable.jsx';
 import { GridViewIcon, ListViewIcon } from '../Common/CustomIcons.jsx';
 import { openFile } from '../../functions/utility.js';
@@ -60,6 +61,7 @@ export function RecentPage ({ setIsDisabled }){
           Header: 'Author',
           accessor: 'Author',
           resizable: true,
+          Cell: CustomAuthorCellRenderer,
         },
         {
           Header: 'Date Modified',

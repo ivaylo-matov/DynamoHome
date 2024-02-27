@@ -24,7 +24,11 @@ const renderSample = (sample, key) => {
     } else {
         // Render a SamplesGridItem for leaf nodes
         return (
-            <SamplesGridItem key={key} FileName={sample.FileName} FilePath={sample.FilePath} />
+            <div className={styles["sample-container"]}>
+                <div className={styles["graphs-grid"]}>
+                    <SamplesGridItem key={key} FileName={sample.FileName} FilePath={sample.FilePath} />
+                </div>
+            </div>
         );
     }
 };
