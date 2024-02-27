@@ -4,6 +4,18 @@ export const samples = [
     FilePath: 'Path',
     Children: [
       {
+        FileName: 'loco.dyn',
+        FilePath:
+          'D:\\ProgramData\\Autodesk\\RVT 2025\\Dynamo\\non-samples\\Loco_file.dyn',
+        Children: null
+      },
+      {
+        FileName: 'lose.dyn',
+        FilePath:
+          'C:\\ProgramData\\Autodesk\\RVT 2025\\Dynamo\\samples\\Lose_file.dyn',
+        Children: null
+      },
+      {
         FileName: 'Basics',
         FilePath: 'C:\\ProgramData\\Autodesk\\RVT 2025\\Dynamo\\samples\\en-US\\Basics',
         Children: [
