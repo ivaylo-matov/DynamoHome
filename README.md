@@ -1,4 +1,9 @@
-# DynamoAppHome
+# DynamoHome
+
+[![License](https://img.shields.io/npm/l/@dynamods/dynamo-home)](https://github.com/DynamoDS/DynamoHome/blob/master/LICENSE)
+[![version](https://img.shields.io/npm/v/@dynamods/dynamo-home?logo=npm&label=version)](https://www.npmjs.com/package/@dynamods/dynamo-home)
+[![Build](https://github.com/DynamoDS/DynamoHome/actions/workflows/build.yml/badge.svg)](https://github.com/DynamoDS/DynamoHome/actions/workflows/build.yml)
+[![Publish](https://github.com/DynamoDS/DynamoHome/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/DynamoDS/DynamoHome/actions/workflows/npm-publish.yml)
 
 A react-based app to serve as Dynamo landing page.
 This application is specific to Dynamo and utilizes several specific endpoints to work as intended.
@@ -69,12 +74,12 @@ npm run lint:fix    # To fix problems
 
 ### Test
 
-We use [jest](https://jestjs.io/) to run our tests.
+We use [jest](https://jestjs.io/) and [playwright](https://playwright.dev/) to run our tests.
 
 ```shell
 npm run test:unit   # To run unit test
 npm run test:e2e    # To run e2e test
-npm run test        # To runs all tests along with lint
+npm run test        # To runs all tests
 ```
 
 ### Bump Version

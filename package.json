@@ -1,7 +1,7 @@
 {
   "name": "@dynamods/dynamo-home",
   "version": "1.0.6",
-  "description": "Dynamo APP Home",
+  "description": "Dynamo Home",
   "author": "Autodesk Inc.",
   "main": "index.js",
   "scripts": {
