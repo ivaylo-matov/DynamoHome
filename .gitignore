@@ -1,14 +1,21 @@
-# .gitignore
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Ignore node_modules folder
-node_modules/
+# dependencies
+node_modules
 
-# Ignore environment variables and secrets
+# dotenv files
 .env
 
-# Ignore build folder
-/dist
-/build
+# build
+dist
+build
 
-# Ignore logs
+# logs
+logs
 *.log
+
+# test
+coverage
+test-results
+playwright-report
+playwright/.cache

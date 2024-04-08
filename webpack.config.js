@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',  
+  entry: './src/index.js',
   output: {
     path: path.join(__dirname, '/dist/build'),
     filename: 'index.bundle.js',
@@ -33,7 +33,11 @@ module.exports = {
     minimizer: [
       new TerserPlugin({
         parallel: true,
+        extractComments: false,
         terserOptions: {
+          format: {
+            comments: false,
+        },
         },
       }),
     ]

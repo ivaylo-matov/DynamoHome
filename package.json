@@ -1,24 +1,23 @@
 {
   "name": "@dynamods/dynamo-home",
-  "version": "1.0.5",
-  "description": "",
+  "version": "1.0.6",
+  "description": "Dynamo Home",
   "author": "Autodesk Inc.",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack serve --config webpack.config.js --env dev",
-    "start:staging": "webpack serve --config webpack.config.js --env staging",
-    "start": "webpack serve --config webpack.config.js --env prod",
-    "build:dev": "webpack --config webpack.config.js --mode=development --env dev",
-    "build:staging": "webpack --config webpack.config.js --mode=development --env staging",
-    "build": "webpack --config webpack.config.js --mode=development --env prod",
-    "bundle": "webpack --config webpack.config.js --mode=production",
-    "copy": "cp package.json dist/ && cp README.md dist/ && cp -r license_output dist/",
-    "production": "npm run bundle && npm run copy",
-    "lic_direct": "npx @adsk/adsk-npm-license-puller --path . --app-name 'dynamo-home' --verbose --about-box ./license_output/about-box_direct.html --about-box-type desktop --year $(date) --paos ./license_output/paos_direct.csv",
-    "lic_transitive": "npx @adsk/adsk-npm-license-puller --path . --app-name 'dynamo-home' --verbose --about-box ./license_output/about-box_transitive.html --about-box-type desktop --transitive --year $(date) --paos ./license_output/paos_transitive.csv",
-    "generate_license": "npm run lic_direct && npm run lic_transitive",
+    "lint:check": "eslint src/ tests/",
+    "lint:fix": "eslint src/ tests/ --fix",
     "test:unit": "NODE_ENV=test jest tests/App.test.js",
-    "test:e2e": "playwright test tests/e2e.test.js"
+    "test:e2e": "playwright test tests/e2e.test.js",
+    "test": "npm run test:unit && npm run test:e2e",
+    "start": "webpack serve --config webpack.config.js",
+    "build": "webpack --config webpack.config.js --mode=development",
+    "bundle": "webpack --config webpack.config.js --mode=production",
+    "production": "npm run bundle && cp -R package.json README.md license_output dist",
+    "license:direct": "npx @adsk/adsk-npm-license-puller --path . --app-name 'dynamo-home' --verbose --about-box ./license_output/about-box_direct.html --about-box-type desktop --year $(date) --paos ./license_output/paos_direct.csv",
+    "license:transitive": "npx @adsk/adsk-npm-license-puller --path . --app-name 'dynamo-home' --verbose --about-box ./license_output/about-box_transitive.html --about-box-type desktop --transitive --year $(date) --paos ./license_output/paos_transitive.csv",
+    "license": "npm run license:direct && npm run license:transitive",
+    "version:patch": "npm version patch --no-git-tag-version"
   },
   "eslintConfig": {
     "extends": [
@@ -26,7 +25,12 @@
       "react-app/jest"
     ]
   },
-  "keywords": [],
+  "keywords": [
+    "dynamo",
+    "dynamo-home",
+    "dynamo-app-home",
+    "dynamo-component"
+  ],
   "license": "MIT",
   "homepage": "https://github.com/DynamoDS/DynamoHome.git",
   "repository": {
@@ -48,6 +52,8 @@
     "@testing-library/react": "^13.4.0",
     "babel-loader": "^9.1.3",
     "css-loader": "^6.8.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
     "html-webpack-plugin": "^5.5.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",

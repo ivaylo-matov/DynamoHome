@@ -9,26 +9,23 @@ function App() {
 
   // Function to get messages based on locale
   const messages = getMessagesForLocale(locale);
-  
+
   useEffect(() => {
     window.setLocale = (newLocale) => {
       setLocale(newLocale);
     };
 
     // Trigger the 'ApplicationLoaded()' command on the backend
-    if(chrome.webview !== undefined){
+    if (chrome.webview !== undefined) {
       chrome.webview.hostObjects.scriptObject.ApplicationLoaded();
-      }
-    }, []); 
+    }
+  }, []);
 
-     return (
-      <IntlProvider locale={locale} messages={messages}>
-        <LayoutContainer id='homeContainer'/>
-      </IntlProvider>
-    );
-  }
+  return (
+    <IntlProvider locale={locale} messages={messages}>
+      <LayoutContainer id='homeContainer' />
+    </IntlProvider>
+  );
+}
 
-  export default App
-  
-
- 
+export default App;
