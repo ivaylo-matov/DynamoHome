@@ -20,7 +20,7 @@ common:
     langBCP47: {enu: en, eng: en-GB, deu: de, fra: fr, ita: it, esp: es, ptb: pt-BR, ptg: pt-PT, jpn: ja, chs: zh-Hans, cht: zh-Hant, zhh: zh-Hant-HK, kor: ko, csy: cs, hun: hu, plk: pl, rus: ru, rom: ro, fin: fi, nor: no, sve: sv, nld: nl, dan: da, hrv: hr, trk: tr, cat: ca}
 
   components:
-    - name: DynamoHome
+    - name: DynamoHome  
       main_owner: Soft
       content_owner: N/A
       lang: [csy, deu, esp, fra, ita, jpn, kor, plk, ptb, rus, chs, cht]
