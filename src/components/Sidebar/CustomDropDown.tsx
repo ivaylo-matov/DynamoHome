@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import styles from './CustomDropDown.module.css';
 import { OpenArrow } from '../Common/Arrow';
 
-export const CustomDropdown = ({ id, options, placeholder, onSelectionChange }: Dropdown) => {
+export const CustomDropdown = ({ id, options, placeholder, onSelectionChange, className }: Dropdown & { className?: string }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [lastSelected, setLastSelected] = useState(options[0]);
     const dropdownRef = useRef(null);
@@ -43,12 +43,12 @@ export const CustomDropdown = ({ id, options, placeholder, onSelectionChange }: 
     }, [isOpen]);
 
     return (
-        <div className={`${styles['custom-dropdown']} ${isOpen ? styles.open : ''}`} ref={dropdownRef}>
+        <div className={`${styles['custom-dropdown']} ${isOpen ? styles.open : ''} ${className}`} ref={dropdownRef}>
             <div className={styles['dropdown-selected']} onClick={handleDefaultAction}>
-                <span>{placeholder}</span>  
+                <span>{placeholder}</span>
                 <span className={styles['vertical-line']}></span>
                 <div className={styles['arrow-container']} onClick={(e) => {
-                    e.stopPropagation(); 
+                    e.stopPropagation();
                     toggleDropdown();
                 }}>
                     <OpenArrow isOpen={isOpen} color={arrowColor} />

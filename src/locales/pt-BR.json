@@ -17,7 +17,9 @@
   "learning.title.text.learning": "Aprendizagem",
   "learning.title.text.guides": "Guias interativos",
   "learning.title.text.videos": "Tutoriais em vídeo",
-  "samples.showsamples.text": "Mostrar amostras na pasta",
+  "samples.showsamples.text": "Mostrar na pasta",
+  "samples.showsamples.files.text": "Gráficos",
+  "samples.showsamples.datasets.text": "Conjuntos de dados",
   "main.page.loading.text": "Carregando",
   "recent.item.old.format": "Formato de arquivo do Dynamo 1.x",
   "recent.item.old.format.tooltip": "Autor e miniatura não disponíveis para arquivos salvos no formato do Dynamo 1.x"
