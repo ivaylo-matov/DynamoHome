@@ -19,7 +19,7 @@ export function startGuidedTour(guidedTour:string) {
 }
 
 /**
- * A call to different backedn functions based on the provided value
+ * A call to different backend functions based on the provided value
  * @param {SidebarCommand} value the type of command based on the UI request
  */
 export function sideBarCommand(value: SidebarCommand) {
@@ -43,10 +43,24 @@ export function sideBarCommand(value: SidebarCommand) {
 /**
  * A call to a backend function requesting the execution of the ShowSampleFilesInFolder function
  */
-export function showSamplesFilesInFolder() {
-  if (window.chrome?.webview !== undefined) {
-    window.chrome.webview.hostObjects.scriptObject.ShowSampleFilesInFolder();
-  }
+//export function showSamplesFilesInFolder() {
+//  if (window.chrome?.webview !== undefined) {
+//    window.chrome.webview.hostObjects.scriptObject.ShowSampleFilesInFolder();
+//  }
+//}
+
+
+/**
+ * A call to a backend functions based on the provided value
+ * * @param {ShowSamplesCommand} value the type of command based on the UI request
+ */
+export function showSamplesCommand(value: ShowSamplesCommand) {
+    if (value === 'open-graphs' && window.chrome?.webview !== undefined) {
+        window.chrome.webview.hostObjects.scriptObject.ShowSampleFilesInFolder();
+    }
+    if (value == 'open-datasets' && window.chrome?.webview !== undefined) {
+        window.chrome.webview.hostObjects.scriptObject.ShowSampleDatasetsInFolder();
+    }
 }
 
 /**

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import styles from './CustomDropDown.module.css';
 import { OpenArrow } from '../Common/Arrow';
 
-export const CustomDropdown = ({ id, options, placeholder, onSelectionChange }: Dropdown) => {
+export const CustomDropdown = ({ id, options, placeholder, onSelectionChange, className }: Dropdown & {className?: string}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [lastSelected, setLastSelected] = useState(options[0]);
     const dropdownRef = useRef(null);
@@ -10,7 +10,7 @@ export const CustomDropdown = ({ id, options, placeholder, onSelectionChange }: 
 
     const toggleDropdown = () => setIsOpen(!isOpen);
 
-    /** Peforms the selected action type when used as a Drop-down */
+    /** Performs the selected action type when used as a Drop-down */
     const handleOptionSelect = (option: option) => {
         setIsOpen(false);
         if (onSelectionChange) {
@@ -18,7 +18,7 @@ export const CustomDropdown = ({ id, options, placeholder, onSelectionChange }: 
         }
     };
 
-    /** Peforms the selected action type when used as a Button */
+    /** Performs the selected action type when used as a Button */
     const handleDefaultAction = () => {
         if (onSelectionChange) {
             onSelectionChange(lastSelected.value);
@@ -43,7 +43,7 @@ export const CustomDropdown = ({ id, options, placeholder, onSelectionChange }: 
     }, [isOpen]);
 
     return (
-        <div className={`${styles['custom-dropdown']} ${isOpen ? styles.open : ''}`} ref={dropdownRef}>
+        <div className={`${styles['custom-dropdown']} ${isOpen ? styles.open : ''} ${className}`} ref={dropdownRef}>
             <div className={styles['dropdown-selected']} onClick={handleDefaultAction}>
                 <span>{placeholder}</span>  
                 <span className={styles['vertical-line']}></span>
