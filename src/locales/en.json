@@ -17,7 +17,9 @@
     "learning.title.text.learning": "Learning",
     "learning.title.text.guides": "Interactive Guides",
     "learning.title.text.videos": "Video Tutorials",
-    "samples.showsamples.text": "Show Samples in Folder",
+    "samples.showsamples.text": "Open file location",
+    "samples.showsamples.files.text": "Graphs",
+    "samples.showsamples.datasets.text": "Datasets",
     "main.page.loading.text": "Loading",
     "recent.item.old.format": "Dynamo 1.x file format",
     "recent.item.old.format.tooltip": "Author and thumbnail not available for files saved in Dynamo 1.x format"
