@@ -6,8 +6,10 @@ import { GridViewIcon, ListViewIcon } from '../Common/CustomIcons';
 import { Tooltip } from '../Common/Tooltip';
 import { CustomSampleFirstCellRenderer } from "./CustomSampleFirstCellRenderer";
 import { SamplesGrid } from './SamplesGrid';
-import { openFile, showSamplesFilesInFolder, saveHomePageSettings } from '../../functions/utility';
+import { openFile, showSamplesCommand, saveHomePageSettings } from '../../functions/utility';
 import { useSettings } from '../SettingsContext';
+import { CustomDropdown } from '../Sidebar/CustomDropDown';
+import styles from './PageSamples.module.css';
 
 export const SamplesPage = ({ samplesViewMode }) => {
     const { settings, updateSettings } = useSettings();
@@ -99,8 +101,8 @@ export const SamplesPage = ({ samplesViewMode }) => {
     };
 
     // Handles show samples link click
-    const handleShowSamplesClick = () => {
-        showSamplesFilesInFolder();
+    const handleShowSamplesClick = (value: ShowSamplesCommand) => {
+        showSamplesCommand(value);
     }
 
     return (
@@ -126,7 +128,19 @@ export const SamplesPage = ({ samplesViewMode }) => {
                     </Tooltip>
                 </button>
                 <div style={{ marginLeft: "auto", marginRight: "20px", color: "white" }}>
-                    <a id="showSampleFilesLink" style={{ cursor: "pointer", fontSize: "20px", color: "#6DD2FF" }} target="_blank" rel="noopener noreferrer" onClick={handleShowSamplesClick}><FormattedMessage id="samples.showsamples.text" /></a>
+                    <CustomDropdown
+                        id="samplesDropdown"
+                        placeholder={<FormattedMessage id="samples.showsamples.text" />}
+                        onSelectionChange={handleShowSamplesClick}
+                        options={[
+                            { label: <FormattedMessage id="samples.showsamples.files.text" />, value: 'open-graphs' },
+                            { label: <FormattedMessage id="samples.showsamples.datasets.text" />, value: 'open-datasets' }
+                        ]}
+                        className={styles.wideDropdown}
+                        showDivider={false}
+                        wholeButtonActionable={true}
+                        disableArrowHoverShadow={true}
+                    />
                 </div>
             </div>
             <div style={{ marginRight: "20px", paddingBottom: "35px" }}>
