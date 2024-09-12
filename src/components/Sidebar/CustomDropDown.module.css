@@ -109,8 +109,12 @@
     right: 37px;
     top: 0;
     bottom: 0;
-    width: 1px; 
+    width: 1px;
     height: 100%;
     background-color: #9B9B9B; 
-    margin: 0px; 
+    margin: 0px;
+}
+
+.no-hover-shadow .arrow-container:hover {
+    box-shadow: none !important;
 }

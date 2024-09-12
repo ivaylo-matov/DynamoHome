@@ -127,22 +127,21 @@ export const SamplesPage = ({ samplesViewMode }) => {
                         <ListViewIcon/>
                     </Tooltip>
                 </button>
-
-
                 <div style={{ marginLeft: "auto", marginRight: "20px", color: "white" }}>
                     <CustomDropdown
                         id="samplesDropdown"
                         placeholder={<FormattedMessage id="samples.showsamples.text" />}
                         onSelectionChange={handleShowSamplesClick}
                         options={[
-                            { label: <FormattedMessage id="samples.showsamples.files.text" />, value: 'open-files' },
+                            { label: <FormattedMessage id="samples.showsamples.files.text" />, value: 'open-graphs' },
                             { label: <FormattedMessage id="samples.showsamples.datasets.text" />, value: 'open-datasets' }
                         ]}
                         className={styles.wideDropdown}
+                        showDivider={false}
+                        wholeButtonActionable={true}
+                        disableArrowHoverShadow={true}
                     />
                 </div>
-
-
             </div>
             <div style={{ marginRight: "20px", paddingBottom: "35px" }}>
                 {viewMode === 'list' && (

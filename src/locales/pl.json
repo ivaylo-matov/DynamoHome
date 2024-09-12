@@ -17,7 +17,9 @@
   "learning.title.text.learning": "Nauka",
   "learning.title.text.guides": "Interaktywne podręczniki",
   "learning.title.text.videos": "Filmy z samouczkami",
-  "samples.showsamples.text": "Pokaż przykłady w folderze",
+  "samples.showsamples.text": "Otwórz lokalizację pliku",
+  "samples.showsamples.files.text": "Wykresy",
+  "samples.showsamples.datasets.text": "Zbiory danych",
   "main.page.loading.text": "Wczytywanie",
   "recent.item.old.format": "Format pliku Dynamo 1.x",
   "recent.item.old.format.tooltip": "Informacje o autorze i miniatura nie są dostępne w przypadku plików zapisanych w formacie Dynamo 1.x"
