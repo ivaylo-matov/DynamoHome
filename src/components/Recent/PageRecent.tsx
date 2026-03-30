@@ -6,7 +6,7 @@ import { CustomLocationCellRenderer } from './CustomLocationCellRenderer';
 import { CustomAuthorCellRenderer } from "./CustomAuthorCellRenderer";
 import { GraphTable } from './GraphTable';
 import { GridViewIcon, ListViewIcon, QuestionMarkIcon } from '../Common/CustomIcons';
-import { openFile, saveHomePageSettings } from '../../functions/utility';
+import { openFile } from '../../functions/utility';
 import { templateDateDisplay } from '../../functions/templateUtils';
 import { FormattedMessage } from 'react-intl';
 import { Tooltip } from '../Common/Tooltip';
@@ -14,7 +14,7 @@ import { useSettings } from '../SettingsContext';
 import { useTemplates } from '../TemplatesContext';
 
 export const RecentPage = ({ setIsDisabled, recentPageViewMode }: RecentPage) => {    
-    const { settings, updateSettings } = useSettings();
+    const { updateAndSaveSettings } = useSettings();
     const [viewMode, setViewMode] = useState(recentPageViewMode); 
     const [templatesViewMode, setTemplatesViewMode] = useState(settings?.templatesPageViewMode || 'grid');
     const [initialized, setInitialized] = useState<boolean>(false);
@@ -73,12 +73,9 @@ export const RecentPage = ({ setIsDisabled, recentPageViewMode }: RecentPage) =>
     useEffect(() => {
         if (initialized || recentPageViewMode !== viewMode) {
             setInitialized(true);
-            updateSettings({ recentPageViewMode: viewMode });
-            
-            // Send settings to Dynamo to save
-            saveHomePageSettings({ ...settings, recentPageViewMode: viewMode });
+            updateAndSaveSettings({ recentPageViewMode: viewMode });
         } 
-    }, [viewMode]);
+    }, [viewMode, initialized, recentPageViewMode, updateAndSaveSettings]);
 
     useEffect(() => {
         if (templatesInitialized || (settings?.templatesPageViewMode && settings.templatesPageViewMode !== templatesViewMode)) {
