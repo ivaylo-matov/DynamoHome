@@ -1,20 +1,20 @@
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { GraphGridItem } from './GraphGridItem';
 import { CustomNameCellRenderer } from './CustomNameCellRenderer';
 import { CustomLocationCellRenderer } from './CustomLocationCellRenderer';
 import { CustomAuthorCellRenderer } from "./CustomAuthorCellRenderer";
 import { GraphTable } from './GraphTable';
 import { GridViewIcon, ListViewIcon } from '../Common/CustomIcons';
-import { openFile, saveHomePageSettings } from '../../functions/utility';
+import { openFile } from '../../functions/utility';
 import { FormattedMessage } from 'react-intl';
 import { Tooltip } from '../Common/Tooltip';
 import { useSettings } from '../SettingsContext';
 
 export const RecentPage = ({ setIsDisabled, recentPageViewMode }: RecentPage) => {    
-    const { settings, updateSettings } = useSettings();
+    const { updateAndSaveSettings } = useSettings();
     const [viewMode, setViewMode] = useState(recentPageViewMode); 
-    const [initialized, setInitialized] = useState<boolean>(false);
+    const syncingViewModeFromSettings = useRef(false);
 
     // Set a placeholder for the graphs which will be used differently during dev and prod 
     let initialGraphs = [];
@@ -53,18 +53,21 @@ export const RecentPage = ({ setIsDisabled, recentPageViewMode }: RecentPage) =>
 
     useEffect(() => {
         // Set the viewMode based on the HomePage preferences
+        syncingViewModeFromSettings.current = true;
         setViewMode(recentPageViewMode);
     }, [recentPageViewMode]); 
 
     useEffect(() => {
-        if (initialized || recentPageViewMode !== viewMode) {
-            setInitialized(true);
-            updateSettings({ recentPageViewMode: viewMode });
-            
-            // Send settings to Dynamo to save
-            saveHomePageSettings({ ...settings, recentPageViewMode: viewMode });
-        } 
-    }, [viewMode]);
+        // Skip save when we are just syncing incoming settings into local UI state.
+        if (syncingViewModeFromSettings.current) {
+            syncingViewModeFromSettings.current = false;
+            return;
+        }
+
+        if (recentPageViewMode !== viewMode) {
+            updateAndSaveSettings({ recentPageViewMode: viewMode });
+        }
+    }, [viewMode, recentPageViewMode, updateAndSaveSettings]);
 
     // This variable defins the table structure displaying the graphs
     const columns: Column[] = React.useMemo(() => [

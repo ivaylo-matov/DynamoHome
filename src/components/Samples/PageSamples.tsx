@@ -1,21 +1,21 @@
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { SamplesTable } from './SamplesTable';
 import { FormattedMessage } from 'react-intl';
 import { GridViewIcon, ListViewIcon } from '../Common/CustomIcons';
 import { Tooltip } from '../Common/Tooltip';
 import { CustomSampleFirstCellRenderer } from "./CustomSampleFirstCellRenderer";
 import { SamplesGrid } from './SamplesGrid';
-import { openFile, showSamplesCommand, saveHomePageSettings } from '../../functions/utility';
+import { openFile, showSamplesCommand } from '../../functions/utility';
 import { useSettings } from '../SettingsContext';
 import { CustomDropdown } from '../Sidebar/CustomDropDown';
 import styles from './PageSamples.module.css';
 
 export const SamplesPage = ({ samplesViewMode }) => {
-    const { settings, updateSettings } = useSettings();
+    const { updateAndSaveSettings } = useSettings();
     const [viewMode, setViewMode] = useState(samplesViewMode); 
     const [collapsedRows, setCollapsedRows] = useState<CollapsedRow>({});
-    const [initialized, setInitialized] = useState<boolean>(false);
+    const syncingViewModeFromSettings = useRef(false);
 
     // Set a placeholder for the graphs which will be used differently during dev and prod 
     let initialSamples = [];
@@ -59,18 +59,21 @@ export const SamplesPage = ({ samplesViewMode }) => {
     
     useEffect(() => {
         // Set the viewMode based on the HomePage preferences
+        syncingViewModeFromSettings.current = true;
         setViewMode(samplesViewMode);
     }, [samplesViewMode]); 
 
     useEffect(() => {
-        if (initialized || samplesViewMode !== viewMode) {
-            setInitialized(true);
-            updateSettings({ samplesViewMode: viewMode });
-            
-            // Send settings to Dynamo to save
-            saveHomePageSettings({ ...settings, samplesViewMode: viewMode });
-        } 
-    }, [viewMode]);
+        // Skip save when we are just syncing incoming settings into local UI state.
+        if (syncingViewModeFromSettings.current) {
+            syncingViewModeFromSettings.current = false;
+            return;
+        }
+
+        if (samplesViewMode !== viewMode) {
+            updateAndSaveSettings({ samplesViewMode: viewMode });
+        }
+    }, [viewMode, samplesViewMode, updateAndSaveSettings]);
 
     // This variable defins the table structure displaying the graphs
     const columns = React.useMemo(() => [
