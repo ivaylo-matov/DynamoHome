@@ -9,7 +9,7 @@ import { TemplatesProvider } from './components/TemplatesContext';
 const App = () => {
   const [locale, setLocale] = useState<Locale>("en");
 
-  // Function to get messages based on locale new
+  // Function to get messages based on locale
   const messages = getMessagesForLocale(locale);
 
   useEffect(() => {
