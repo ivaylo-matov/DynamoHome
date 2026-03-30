@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { SamplesTable } from './SamplesTable';
 import { FormattedMessage } from 'react-intl';
 import { GridViewIcon, ListViewIcon } from '../Common/CustomIcons';
@@ -15,7 +15,7 @@ export const SamplesPage = ({ samplesViewMode }) => {
     const { updateAndSaveSettings } = useSettings();
     const [viewMode, setViewMode] = useState(samplesViewMode); 
     const [collapsedRows, setCollapsedRows] = useState<CollapsedRow>({});
-    const [initialized, setInitialized] = useState<boolean>(false);
+    const syncingViewModeFromSettings = useRef(false);
 
     // Set a placeholder for the graphs which will be used differently during dev and prod 
     let initialSamples = [];
@@ -59,15 +59,21 @@ export const SamplesPage = ({ samplesViewMode }) => {
     
     useEffect(() => {
         // Set the viewMode based on the HomePage preferences
+        syncingViewModeFromSettings.current = true;
         setViewMode(samplesViewMode);
     }, [samplesViewMode]); 
 
     useEffect(() => {
-        if (initialized || samplesViewMode !== viewMode) {
-            setInitialized(true);
+        // Skip save when we are just syncing incoming settings into local UI state.
+        if (syncingViewModeFromSettings.current) {
+            syncingViewModeFromSettings.current = false;
+            return;
+        }
+
+        if (samplesViewMode !== viewMode) {
             updateAndSaveSettings({ samplesViewMode: viewMode });
-        } 
-    }, [viewMode, initialized, samplesViewMode, updateAndSaveSettings]);
+        }
+    }, [viewMode, samplesViewMode, updateAndSaveSettings]);
 
     // This variable defins the table structure displaying the graphs
     const columns = React.useMemo(() => [

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { GraphGridItem } from './GraphGridItem';
 import { CustomNameCellRenderer } from './CustomNameCellRenderer';
 import { CustomLocationCellRenderer } from './CustomLocationCellRenderer';
@@ -14,7 +14,7 @@ import { useSettings } from '../SettingsContext';
 export const RecentPage = ({ setIsDisabled, recentPageViewMode }: RecentPage) => {    
     const { updateAndSaveSettings } = useSettings();
     const [viewMode, setViewMode] = useState(recentPageViewMode); 
-    const [initialized, setInitialized] = useState<boolean>(false);
+    const syncingViewModeFromSettings = useRef(false);
 
     // Set a placeholder for the graphs which will be used differently during dev and prod 
     let initialGraphs = [];
@@ -53,15 +53,21 @@ export const RecentPage = ({ setIsDisabled, recentPageViewMode }: RecentPage) =>
 
     useEffect(() => {
         // Set the viewMode based on the HomePage preferences
+        syncingViewModeFromSettings.current = true;
         setViewMode(recentPageViewMode);
     }, [recentPageViewMode]); 
 
     useEffect(() => {
-        if (initialized || recentPageViewMode !== viewMode) {
-            setInitialized(true);
+        // Skip save when we are just syncing incoming settings into local UI state.
+        if (syncingViewModeFromSettings.current) {
+            syncingViewModeFromSettings.current = false;
+            return;
+        }
+
+        if (recentPageViewMode !== viewMode) {
             updateAndSaveSettings({ recentPageViewMode: viewMode });
-        } 
-    }, [viewMode, initialized, recentPageViewMode, updateAndSaveSettings]);
+        }
+    }, [viewMode, recentPageViewMode, updateAndSaveSettings]);
 
     // This variable defins the table structure displaying the graphs
     const columns: Column[] = React.useMemo(() => [
