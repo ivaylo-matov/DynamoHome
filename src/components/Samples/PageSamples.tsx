@@ -6,13 +6,13 @@ import { GridViewIcon, ListViewIcon } from '../Common/CustomIcons';
 import { Tooltip } from '../Common/Tooltip';
 import { CustomSampleFirstCellRenderer } from "./CustomSampleFirstCellRenderer";
 import { SamplesGrid } from './SamplesGrid';
-import { openFile, showSamplesCommand, saveHomePageSettings } from '../../functions/utility';
+import { openFile, showSamplesCommand } from '../../functions/utility';
 import { useSettings } from '../SettingsContext';
 import { CustomDropdown } from '../Sidebar/CustomDropDown';
 import styles from './PageSamples.module.css';
 
 export const SamplesPage = ({ samplesViewMode }) => {
-    const { settings, updateSettings } = useSettings();
+    const { updateAndSaveSettings } = useSettings();
     const [viewMode, setViewMode] = useState(samplesViewMode); 
     const [collapsedRows, setCollapsedRows] = useState<CollapsedRow>({});
     const [initialized, setInitialized] = useState<boolean>(false);
@@ -65,12 +65,9 @@ export const SamplesPage = ({ samplesViewMode }) => {
     useEffect(() => {
         if (initialized || samplesViewMode !== viewMode) {
             setInitialized(true);
-            updateSettings({ samplesViewMode: viewMode });
-            
-            // Send settings to Dynamo to save
-            saveHomePageSettings({ ...settings, samplesViewMode: viewMode });
+            updateAndSaveSettings({ samplesViewMode: viewMode });
         } 
-    }, [viewMode]);
+    }, [viewMode, initialized, samplesViewMode, updateAndSaveSettings]);
 
     // This variable defins the table structure displaying the graphs
     const columns = React.useMemo(() => [

@@ -6,13 +6,13 @@ import { CustomLocationCellRenderer } from './CustomLocationCellRenderer';
 import { CustomAuthorCellRenderer } from "./CustomAuthorCellRenderer";
 import { GraphTable } from './GraphTable';
 import { GridViewIcon, ListViewIcon } from '../Common/CustomIcons';
-import { openFile, saveHomePageSettings } from '../../functions/utility';
+import { openFile } from '../../functions/utility';
 import { FormattedMessage } from 'react-intl';
 import { Tooltip } from '../Common/Tooltip';
 import { useSettings } from '../SettingsContext';
 
 export const RecentPage = ({ setIsDisabled, recentPageViewMode }: RecentPage) => {    
-    const { settings, updateSettings } = useSettings();
+    const { updateAndSaveSettings } = useSettings();
     const [viewMode, setViewMode] = useState(recentPageViewMode); 
     const [initialized, setInitialized] = useState<boolean>(false);
 
@@ -59,12 +59,9 @@ export const RecentPage = ({ setIsDisabled, recentPageViewMode }: RecentPage) =>
     useEffect(() => {
         if (initialized || recentPageViewMode !== viewMode) {
             setInitialized(true);
-            updateSettings({ recentPageViewMode: viewMode });
-            
-            // Send settings to Dynamo to save
-            saveHomePageSettings({ ...settings, recentPageViewMode: viewMode });
+            updateAndSaveSettings({ recentPageViewMode: viewMode });
         } 
-    }, [viewMode]);
+    }, [viewMode, initialized, recentPageViewMode, updateAndSaveSettings]);
 
     // This variable defins the table structure displaying the graphs
     const columns: Column[] = React.useMemo(() => [
