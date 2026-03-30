@@ -9,7 +9,6 @@ export const LayoutContainer = ({ id }: { id?: string }) => {
   const defaultMaxSize = 500;
   const defaultBarWidth = 300;
 
-  const { settings, updateSettings } = useSettings();
   const { settings, updateSettings, updateAndSaveSettings } = useSettings();
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const [selectedSidebarItem, setSelectedSidebarItem] = useState<SidebarItem>('Recent');
